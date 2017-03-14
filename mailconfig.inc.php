@@ -8,5 +8,5 @@ $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
 $mail->setFrom('test@amkuperus.nl', 'AMKuperus');//Sender
 
-$mailUrl = 'http://127.0.0.1/GitHub/codeStash';
+$mailUrl = 'http://127.0.0.1/GitHub/';
 ?>
