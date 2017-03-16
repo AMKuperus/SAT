@@ -1,3 +1,5 @@
 ##DB CONNECTION##
 config.inc.php
 mailconfig.inc.php
+phpDocumentor.phar
+docs/**
