@@ -16,3 +16,7 @@ To make a database work with the S.A.T. you need:
 When a user registers they enter the platform on the lowest level being registered.
 - Teacher can change registered -> student
 - Admin can change registered -> student & user -> teacher
+
+## Product owners
+
+This product is a collaboration between [AM Kuperus](https://github.com/AMKuperus) and  [G. Leijten](https://github.com/guidoleijten)
