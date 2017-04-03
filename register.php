@@ -26,7 +26,7 @@
         }
       } else {//Fill in username error
           array_push($errors, 'Fill in a username. Username is the name with which
-                              you login and should contain more then 5 characters. ');
+                              you login and should contain more than 5 characters. ');
       }
 
       //password
@@ -40,12 +40,12 @@
               $user['passCode'] = $pass;
             } else {//else password not correct mix/length error
               if(!passContains($p)) {
-                array_push($errors, 'Password must contain atleast a digit a small
-                                    letter a capital letter and a scpecial character.
+                array_push($errors, 'Password must contain atleast a digit a lowercase
+                                    letter an uppercase letter and a special character.
                                     Please try again. ');
               }
               if(!passLength($p)) {
-                array_push($errors, 'Password must be minimal of 10 characters and
+                array_push($errors, 'Password must be a minimum of 10 characters and
                                     maximal of 72 characters. ');
               }
             }
@@ -87,15 +87,15 @@
         if(empty($ask)) {
           $user['email'] = $email;
         } else {
-          array_push($errors, 'The emailaddress you filled in appears to be already
-                              in use, please enter your own emailadress. ');
+          array_push($errors, 'The email address you filled in appears to already
+                              be in use, please enter a different email address. ');
         }
       } else {//Fill in email error
         //if emailadress is empty
         if (empty($_POST['email'])){
-          array_push($errors, 'Fill in a email-adress please. ');
+          array_push($errors, 'Fill in an email address please. ');
         } elseif (strlen($_POST['email'])) {
-          array_push($errors, 'Fill in a correct emailadres please. ');
+          array_push($errors, 'Fill in a correct email addres please. ');
         }
       }
     } //submitbutton
@@ -111,7 +111,7 @@
     addUser($db, $user, $token);
     verMail($user, $token);
     //Say thank you
-    echo  '<div class="box loginbox"><p>Thank you for registering to ITVitae-SAT. You will receive a email with a link.</p>
+    echo  '<div class="box loginbox"><p>Thank you for registering to ITVitae-SAT. You will receive an email with a link.</p>
           <p>Click the link in the email to activate the account.</p></div>';
   } else {//Show the registration form.
     echo '<form class="box registerbox" action="" method="POST">
@@ -126,7 +126,7 @@
     }
 
     echo  '<p>Username: <input type="text" name="userName" ' . setValue('userName') . 'placeholder="username" required></p>
-          <small>Password must be minimal 10 characters long and contain small letter a digit a capital and a special character.</small>
+          <small>Password must be a minimum of 10 characters and contain at least an uppercase letter, a lowercase letter, a digit and a special character.</small>
           <p>Password: <input type="password" name="pass1" placeholder="**********" required></p>
           <p>Re-type password: <input type="password" name="pass2" placeholder="**********" required></p>
           <p>First name: <input type="text" name="firstName" ' . setValue('firstName') . 'placeholder="first name" required></p>
