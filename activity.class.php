@@ -21,7 +21,7 @@ public function __construct($db) {
     $this->db = $db;
   }
 //below a list of functions to filter the input of the activity fields
-//TODO: reviews public functions and set as private/protected
+//TODO: review public functions and set as private/protected if needed
   public function filterActivity($newActivity) {
     $this->activity = filter_input(INPUT_POST, 'activity', FILTER_SANITIZE_STRING);
   }
@@ -83,7 +83,7 @@ public function __construct($db) {
     $sql->execute();
   }
 //function to write the initial activity to the database
-public function setActivity() {
+  public function setActivity() {
     $stmt = "INSERT INTO sat.activity (
             activity,
             type,
@@ -105,8 +105,22 @@ public function setActivity() {
     $sql->bindParam(':notes', $_POST['notes'], PDO::PARAM_STR);
     $sql->execute();
 }
+
+//function to add an end date to the activity when finish is clicked
+//It sets the default timezone to Amsterdam
+//creates a timestamp and sets it into day-month-year hour-minute-seconds format
+  public function finishActivity() {
+    if(isset($_POST['finish'])) {
+      date_default_timezone_set("Europe/Amsterdam");
+      $date = date_create();
+      $date->format('d-m-Y H:i:s');
+      $stmt = "INSERT INTO sat.activity (endDate VALUES :$date)"
+      $sql = $this->db->prepare($stmt);
+//PDO:PARAM_STR used for date/timestamp, perhaps incorrect paramater usage
+      $sql->bindParam(':endDate', $date, PDO::PARAM_STR);
+    }
+  }
 //public function can be called outside the class
 //private function can only be used inside the class
-
 }
  ?>
