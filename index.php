@@ -5,6 +5,7 @@
   sessionStart();
   sessionRegenerate();
   //http://php.net/manual/en/function.session-create-id.php
+  //https://www.security.nl/posting/29281/PHP+sessions%3B+hoe+het+wel+moet
   include 'head.inc.php';
 
   function sessionStart() {
@@ -19,8 +20,8 @@
     if(session_status() != PHP_SESSION_ACTIVE) {
       session_start();
     }
-    $id = session_id();//Think about what to use as prefix
-    //Set timestamp to keep already for net session regeneration
+    $id = session_id();//Think about what to use as prefix (polymorp encrypted ip + token?)
+    //Set timestamp to keep already for new session regeneration
     $_SESSION['old_time'] = time();
     //Finish
     session_commit();
