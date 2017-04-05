@@ -12,6 +12,7 @@ class User {
   public $userName;
 
   public function __construct() {
+    //user stuff pulled from db on correct login
     $this->userName = 'Puk van de Petterflet';
   }
 
@@ -22,9 +23,7 @@ class User {
 }
 
 class Student extends User {
-    public function __construct() {
-      $this->userName = 'Pietje ofzo';
-    }
+    //student functionality
 
   protected function callSetActivity() {
 
