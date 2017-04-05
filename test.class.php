@@ -26,6 +26,7 @@ class Bike extends Test {
     //student functionality
 
 
+
 //test function to be removed on final version
   public function testPedals() {
     echo "<p>Knoink rusty chain</p>";
