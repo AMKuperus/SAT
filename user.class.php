@@ -30,4 +30,18 @@ class Student extends User {
     echo "Test";
   }
 }
+
+class Monitor extends User {
+  //test function
+  public function testMonitor() {
+    echo 'This is the monitor';
+  }
+}
+
+class Admin extends User {
+  //test functin private
+  private function testAdmin() {
+    echo 'This is the admin speaking';
+  }
+}
  ?>
