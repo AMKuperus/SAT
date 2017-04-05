@@ -87,18 +87,21 @@ public function __construct($db) {
     $stmt = "INSERT INTO sat.activity (
             activity,
             type,
+            startDate,
             difficulty,
             satisfaction,
             notes
           ) VALUES (
             :activity,
             :type,
+            :startDate,
             :difficulty,
             :satisfaction,
             :notes)";
     $sql = $this->db->prepare($stmt);
     $sql->bindParam(':activity', $_POST['activity'], PDO::PARAM_STR);
     $sql->bindParam(':type', $_POST['type'], PDO::PARAM_STR);
+    $sql->bindParam(':startDate', $_POST['startDate'], PDO::PARAM_STR);
     // use PARAM_STR even though the input is a number
     $sql->bindParam(':difficulty', $_POST['difficulty'], PDO::PARAM_STR);
     $sql->bindParam(':satisfaction', $_POST['satisfaction'], PDO::PARAM_STR);
