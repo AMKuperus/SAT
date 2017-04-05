@@ -1,6 +1,5 @@
 <?php
 //instance to create a new class named User
-$user = new User;
 class User {
   //class variable, set to public for it to be used outside the class
   public $firstName;
@@ -25,8 +24,10 @@ class User {
 class Student extends User {
     //student functionality
 
-  protected function callSetActivity() {
 
+//test function to be removed on final version
+  public function testFunction() {
+    echo "Test";
   }
 }
  ?>
