@@ -29,6 +29,7 @@
     session_start();
   }
 
+  include 'user.class.php'; include 'student.inc.php';
 ?>
 <body>
   <h1>Student Activity Tracker</h1>
