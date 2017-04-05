@@ -1,13 +1,7 @@
 <?php
 //instance to create a new class named User
-class User {
+class Test {
   //class variable, set to public for it to be used outside the class
-  public $firstName;
-  public $lastName;
-  public $email;
-  public $pass;
-  public $state;
-  public $token;
   public $userName;
 
   public function __construct() {
@@ -21,27 +15,31 @@ class User {
 
 }
 
-class Student extends User {
+class Bike extends Test {
     //student functionality
 
 
 //test function to be removed on final version
-  public function testFunction() {
-    echo "Test";
+  public function testPedals() {
+    echo "Knoink rusty chain";
   }
 }
 
-class Monitor extends User {
+class Car extends Test {
   //test function
-  public function testMonitor() {
-    echo 'This is the monitor';
+  public function testEngine() {
+    echo 'Brrrrrrrrrrrr V8';
   }
 }
 
-class Admin extends User {
+class Spaceship extends Test {
   //test functin private
-  private function testAdmin() {
-    echo 'This is the admin speaking';
+  private function testFly() {
+    echo '<h1>We are flying high!</h1>';
+  }
+
+  public function sayTestFly() {
+    $this->testFly();
   }
 }
  ?>
