@@ -11,6 +11,10 @@ class User {
   public $token;
   public $userName;
 
+  public function __construct() {
+    $this->userName = 'Puk van de Petterflet';
+  }
+
 //protected class variables, only to be used inside superclass and child classes
 //public function can be called outside the class
 //private function can only be used inside the class

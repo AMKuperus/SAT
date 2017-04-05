@@ -1,4 +1,5 @@
 <?php
 ##Student include
-echo '<p>Welcome ' . $user->userName . '</p>';
+$x = new User();
+echo '<p>Welcome ' . $x->userName . '</p>';
 ?>
