@@ -84,12 +84,12 @@ public function __construct($db) {
 //function to write the initial activity to the database
   public function setActivity() {
     $stmt = "INSERT INTO sat.activity (
-            activity,
-            type,
-            startDate,
-            difficulty,
-            satisfaction,
-            notes
+            sat.activity.activity,
+            sat.activity.type,
+            sat.activity.startDate,
+            sat.activity.difficulty,
+            sat.activity.satisfaction,
+            sat.activity.notes
           ) VALUES (
             :activity,
             :type,
