@@ -5,7 +5,6 @@ require_once 'jumper.inc.php';
 $objUser = new Activity($db);
 class Activity {
 
-//protected class variables, only to be used inside superclass and child classes
   protected $activity;
   protected $activityID;
   protected $type;
@@ -123,7 +122,5 @@ public function __construct($db) {
       $sql->bindParam(':endDate', $date, PDO::PARAM_STR);
     }
   }
-//public function can be called outside the class
-//private function can only be used inside the class
 }
  ?>
