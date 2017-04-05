@@ -15,13 +15,12 @@ class User {
 //public function can be called outside the class
 //private function can only be used inside the class
 
-
+}
 
 class Student extends User {
     public function __construct() {
-      $this->userName = $_POST['userName'];
+      $this->userName = 'Pietje ofzo';
     }
-  }
 
   protected function callSetActivity() {
 
