@@ -7,5 +7,13 @@ $z = new Spaceship();
 echo '<p>Welcome ' . $x->userName . '</p>';
 $x->testPedals();
 $y->testEngine();
-$z->sayTestFly();
+$z->sayTestFly('rifter');
+
+echo '<form method=POST>
+        <input type=text name=insert>
+        <input type=submit>
+      </form>';
+
+$t = new Test();
+$t->showField();
 ?>
