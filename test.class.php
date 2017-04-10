@@ -3,7 +3,6 @@
 class Test {
   //class variable, set to public for it to be used outside the class
   public $userName;
-<<<<<<< HEAD
   public $activity;
   public $activityID;
   public $type;
@@ -13,9 +12,7 @@ class Test {
   public $satisfaction;
   public $notes;
   public $db;
-=======
   public $insert;
->>>>>>> origin/master
 
   public function __construct($db) {
 
@@ -89,21 +86,18 @@ class Car extends Test {
 
 class Spaceship extends Test {
   //test functin private
-<<<<<<< HEAD
   private function testFly($space) {
     echo '<h1>We are flying high '. $space. '!</h1>';
   }
 
   public function sayTestFly($space) {
     $this->testFly($space);
-=======
   private function testFly($ship) {
     echo '<h1>We are flying high!</h1><p>I love my ' . $ship . '</p>';
   }
 
   public function sayTestFly($ship) {
     $this->testFly($ship);
->>>>>>> origin/master
   }
 }
  ?>
