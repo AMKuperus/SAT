@@ -1,5 +1,4 @@
 <?php
-
 class Storage {
 
   public $userName;
@@ -19,6 +18,7 @@ class Storage {
     }
 //function to retrieve data from post and run through filter_input
     public function postData() {
+      $this->activityID = filter_input(INPUT_POST, 'activityID', FILTER_SANITIZE_NUMBER_INT);;
       $this->activity = filter_input(INPUT_POST, 'activity', FILTER_SANITIZE_STRING);
       $this->type = filter_input(INPUT_POST, 'type', FILTER_SANITIZE_STRING);
       $this->startDate = filter_input(INPUT_POST, 'startDate', FILTER_SANITIZE_NUMBER_INT);
@@ -30,9 +30,18 @@ class Storage {
       $this->postData();
     }
 //function to view activities
+//TODO: Not functional yet
+//TODO: prints an empty array, but should show row where activityID is the same
+//      as the activityID in the HTML form
     public function viewActivities() {
-      $stmt = $this->db->query('SELECT * FROM sat.activity');
-      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $id = $this->activityID;
+      $stmt = "SELECT * FROM sat.activity WHERE activityID = ':activityID'";
+      $sql = $this->db->prepare($stmt);
+      $sql->bindParam(':activityID', $id, PDO::PARAM_STR);
+      $sql->execute();
+      $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+      print_r($result);
+
   }
   //function to write the initial activity to the database
     public function insertActivity() {

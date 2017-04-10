@@ -9,9 +9,13 @@ class User {
   public $state;
   public $token;
   public $userName;
+  public $role;
+  public $db;
+  public $storage;
 
-  public function __construct() {
+  public function __construct($db) {
     //user stuff pulled from db on correct login
+    $this->db = $db;
     $this->userName = 'Puk van de Petterflet';
   }
 
@@ -23,7 +27,20 @@ class User {
 
 class Student extends User {
     //student functionality
-    public function 
+//function/method that calls viewActivities method from Storage class
+  public function callViewActivities() {
+    $storage = new Storage($this->db);
+    $view = $storage->viewActivities();
+}
+//function/method that calls the insertActivity method from Storage class
+  public function callInsertActivity() {
+    $storage = new Storage($this->db);
+    $insert = $storage->insertActivity();
+}
+  public function callEditActivities() {
+    $storage = new Storage($this->db);
+    $edit = $storage->editActivities();
+}
 
 //test function to be removed on final version
   public function testFunction() {
