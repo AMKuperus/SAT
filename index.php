@@ -31,8 +31,9 @@
     ini_set('session.use_strict_mode', 0);
     //session_id($id);
     session_start();
+    //Testing SESSION stuff remove when tested.
     echo "<p>Session regenerate</p>" . date('H:i:s d/m/Y', $_SESSION['old_time']) . '[' .  $_SESSION['old_time'] . ']<br>';
-    echo $id;
+    echo 'Session_id: ' . $id;
   }
 
 ?>
