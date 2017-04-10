@@ -3,3 +3,5 @@ config.inc.php
 mailconfig.inc.php
 phpDocumentor.phar
 docs/**
+test.class.php
+test.class.php
