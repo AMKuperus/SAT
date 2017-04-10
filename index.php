@@ -13,6 +13,7 @@
     if (!empty($_SESSION['old_time']) && $_SESSION['old_time'] < time() - 360) {
       session_destroy();
       session_start();
+      echo "<p>session start</p>";
     }
   }
 
@@ -20,7 +21,7 @@
     if(session_status() != PHP_SESSION_ACTIVE) {
       session_start();
     }
-    $id = session_id();//Think about what to use as prefix (polymorp encrypted ip + token?)
+    $id = session_id('sessie' . time());//Think about what to use as prefix (polymorp encrypted ip + token?)
     //Set timestamp to keep already for new session regeneration
     $_SESSION['old_time'] = time();
     //Finish
@@ -28,6 +29,8 @@
     ini_set('session.use_strict_mode', 0);
     session_id($id);
     session_start();
+    echo "<p>Session regenerate</p>" . date('H:i:s d/m/Y', $_SESSION['old_time']) . '[' .  $_SESSION['old_time'] . ']<br>';
+    echo $id;
   }
 
 ?>
