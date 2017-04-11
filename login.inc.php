@@ -1,10 +1,4 @@
-<form class="box loginbox" action="" method="POST">
-  <h2>Login</h2>
-  <p>Username: <input type="text" name="userName" placeholder="your.name"></p>
-  <p>Password: <input type="password" name="pass" placeholder="**********" max="70"></p>
-  <input id="loginbtn" type="submit" value="Login">
-  <a href="register.php">New user registration</a>
-</form>
+
 <?php
 //TODO Build up environment for safe session
   //start session->login
@@ -20,9 +14,12 @@
   require_once 'jumper.inc.php';
   include 'functions.inc.php';
 
+echo '<form class="box loginbox" action="" method="POST">
+      <h2>Login</h2>';
+
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(!isset($_POST['userName']) || !isset($_POST['pass']) || empty($_POST['userName']) || empty($_POST['pass'])) {
-      echo "<code>Wrong input. Try again or register.</code>";
+      echo "<small class=error>Wrong input. Try again or register.</small>";
     } else {
       $username = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
       //Grab the password from the database
@@ -32,8 +29,13 @@
         echo "<code>Welcome $username</code>";
         //TODO do something with the session so we can identify the user
       } else {
-        echo "<code>Wrong input. Try again or register.</code>";
+        echo "<small class=error>Wrong input. Try again or register.</small>";
       }
     }
   }
+  echo  '<p>Username: <input type="text" name="userName" placeholder="your.name"></p>
+        <p>Password: <input type="password" name="pass" placeholder="**********" max="70"></p>
+        <input id="loginbtn" type="submit" value="Login">
+        <a href="register.php">New user registration</a>
+        </form>';
 ?>
