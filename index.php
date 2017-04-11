@@ -2,7 +2,7 @@
 <?php
   //Make sure to use strict mode for session as security measure.
   ini_set('session.use_strict_mode', 1);
-  sessionStart();
+  //sessionStart();
   sessionRegenerate();
   //http://php.net/manual/en/function.session-create-id.php
   //https://www.security.nl/posting/29281/PHP+sessions%3B+hoe+het+wel+moet
@@ -27,7 +27,7 @@
     //Finish
     session_commit();
     ini_set('session.use_strict_mode', 0);
-    session_id($id);
+    //session_id($id);
     session_start();
     echo "<p>Session regenerate</p>" . date('H:i:s d/m/Y', $_SESSION['old_time']) . '[' .  $_SESSION['old_time'] . ']<br>';
     echo $id;
