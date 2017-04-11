@@ -91,7 +91,7 @@ class Storage {
     public function finishActivity() {
       $today = date('Y-m-d H:i:s');
       echo $today;
-      $stmt = "UPDATE sat.activity SET endDate = :$today)";
+      $stmt = "UPDATE sat.activity SET endDate = :endDate)";
       $sql = $this->db->prepare($stmt);
       //PDO:PARAM_STR used for date/timestamp, perhaps incorrect paramater usage
       $sql->bindParam(':endDate', $today, PDO::PARAM_STR);
