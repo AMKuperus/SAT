@@ -90,6 +90,6 @@ function logUser(&$db, $user) {
   $ask = $db->prepare($sql);
   $ask->bindValue(':user', $user, PDO::PARAM_STR);
   $ask->execute();
-  return $ask->fetch(PDO::FETCH_ASSOC);
+  return $ask->fetchColumn();
 }
 ?>
