@@ -42,7 +42,7 @@
 
   //Creates a hash from $p
   function createHash($p) {
-    $return = password_hash($p, PASSWORD_BCRYPT, ['cost', 12]);
+    $return = password_hash($p, PASSWORD_BCRYPT, ['cost' => 12]);
     return $return;
   }
 
