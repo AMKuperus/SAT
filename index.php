@@ -2,6 +2,7 @@
 <?php
   //Make sure to use strict mode for session as security measure.
   ini_set('session.use_strict_mode', 1);
+  //Set the default timezone for the server
   date_default_timezone_set("Europe/Amsterdam");
   //sessionStart();
   sessionRegenerate();
