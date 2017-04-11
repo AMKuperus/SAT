@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Gegenereerd op: 12 mrt 2017 om 12:35
+-- Gegenereerd op: 11 apr 2017 om 07:12
 -- Serverversie: 5.6.35
 -- PHP-versie: 5.6.30
 
@@ -31,12 +31,26 @@ USE `sat`;
 CREATE TABLE `activity` (
   `activity` varchar(255) NOT NULL,
   `activityID` int(10) UNSIGNED NOT NULL,
+  `userId` int(255) NOT NULL,
   `type` varchar(255) DEFAULT NULL,
   `startDate` date NOT NULL,
   `endDate` date NOT NULL,
   `difficulty` int(11) NOT NULL,
   `satisfaction` int(11) NOT NULL,
   `notes` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `groups`
+--
+
+CREATE TABLE `groups` (
+  `groupID` int(10) UNSIGNED NOT NULL,
+  `userId` int(10) UNSIGNED NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -49,16 +63,6 @@ CREATE TABLE `role` (
   `role` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Gegevens worden geëxporteerd voor tabel `role`
---
-
-INSERT INTO `role` (`role`) VALUES
-('registered'),
-('student'),
-('teacher'),
-('admin');
-
 -- --------------------------------------------------------
 
 --
@@ -68,7 +72,7 @@ INSERT INTO `role` (`role`) VALUES
 CREATE TABLE `users` (
   `userId` int(10) UNSIGNED NOT NULL,
   `userName` varchar(255) NOT NULL,
-  `passCode` char(40) NOT NULL,
+  `passCode` char(60) NOT NULL,
   `firstName` varchar(255) NOT NULL,
   `lastName` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -87,6 +91,12 @@ CREATE TABLE `users` (
 --
 ALTER TABLE `activity`
   ADD PRIMARY KEY (`activityID`);
+
+--
+-- Indexen voor tabel `groups`
+--
+ALTER TABLE `groups`
+  ADD PRIMARY KEY (`groupID`);
 
 --
 -- Indexen voor tabel `users`
@@ -108,7 +118,7 @@ ALTER TABLE `activity`
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `userId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
