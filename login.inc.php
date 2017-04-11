@@ -8,7 +8,6 @@
     //start_session()-session_id()-session_cache_expire()-session_regenate_id()
 //TODO attach in session the role of the user
 //TODO different permissions = different parts of php per role
-//TODO isset checks fields
 ##Login page include
 
   require_once 'jumper.inc.php';
@@ -24,7 +23,7 @@ echo '<form class="box loginbox" action="" method="POST">
       $username = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
       //Grab the password from the database
       $password = logUser($db, $username);
-      // Check if the passwor is match
+      // Check if the password is match
       if(password_verify($_POST['pass'], $password)) {
         echo "<code>Welcome $username</code>";
         //TODO do something with the session so we can identify the user
@@ -33,8 +32,8 @@ echo '<form class="box loginbox" action="" method="POST">
       }
     }
   }
-  echo  '<p>Username: <input type="text" name="userName" placeholder="your.name"></p>
-        <p>Password: <input type="password" name="pass" placeholder="**********" max="70"></p>
+  echo  '<p>Username: <input type="text" name="userName" placeholder="username"></p>
+        <p>Password: <input type="password" name="pass" placeholder="**********" max="72"></p>
         <input id="loginbtn" type="submit" value="Login">
         <a href="register.php">New user registration</a>
         </form>';

@@ -41,9 +41,31 @@
   <h1>Student Activity Tracker</h1>
   <!--switch to include login or studentpages or teacherpages detected from sessionvariable-->
   <?php
-    require_once 'jumper.inc.php';
-    include 'storage.class.php'; include 'user.class.php'; //include 'test.class.php';
-    include 'login.inc.php';     //include 'test.inc.php';
+  require_once 'jumper.inc.php';
+
+  $role = '';//TODO create funtion for retrieveing role and add it here from userclass??
+    switch($role) {
+      case 'user':
+      //user include
+        break;
+      case 'student':
+      //student include
+        break;
+      case 'monitor':
+      //monitor include
+        break;
+      case 'admin':
+      //admin include
+        break;
+      default:
+        include 'login.inc.php';
+    }
+  ?>
+
+  <!--                    Cleanup this part and organize                     -->
+  <?php
+    include 'storage.class.php'; include 'user.class.php';
+    //include 'test.class.php'; //include 'test.inc.php';
   ?>
   <div class='box'>
     <?php include 'test2.inc.php'; ?>
