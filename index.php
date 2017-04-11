@@ -4,7 +4,7 @@
   ini_set('session.use_strict_mode', 1);
   //Set the default timezone for the server
   date_default_timezone_set("Europe/Amsterdam");
-  //sessionStart();
+  sessionStart();
   sessionRegenerate();
   //http://php.net/manual/en/function.session-create-id.php
   //https://www.security.nl/posting/29281/PHP+sessions%3B+hoe+het+wel+moet
