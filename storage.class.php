@@ -84,16 +84,14 @@ class Storage {
       $sql->bindParam(':activityID', $_POST['activityID'], PDO::PARAM_INT);
       $sql->execute();
   }
-
-//TODO: FIX below function - not functional yet
 //function to add an end date to the activity when finish is clicked
 //creates a timestamp and sets it into day-month-year hour-minute-seconds format
     public function finishActivity() {
       $today = date('Y-m-d H:i:s');
       echo $today;
-      $stmt = "UPDATE sat.activity SET endDate = :endDate)";
+      $stmt = "UPDATE sat.activity SET endDate = :endDate WHERE activityID = :activityID";
       $sql = $this->db->prepare($stmt);
-      //PDO:PARAM_STR used for date/timestamp, perhaps incorrect paramater usage
+      $sql->bindParam(':activityID', $_POST['activityID'], PDO::PARAM_INT);
       $sql->bindParam(':endDate', $today, PDO::PARAM_STR);
       $sql->execute();
   }
