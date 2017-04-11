@@ -37,14 +37,27 @@ class Student extends User {
     $storage = new Storage($this->db);
     $insert = $storage->insertActivity();
 }
+//method to call the editActivities method from Storage class
   public function callEditActivities() {
     $storage = new Storage($this->db);
     $edit = $storage->editActivities();
 }
+//method to call the finishActivity method from Storage class
   public function callFinishActivity() {
     $storage = new Storage($this->db);
     $finish = $storage->finishActivity();
   }
-
+}
+class Monitor extends User {
+  //monitor functionality
+//method to call viewStudentProgress method from Storage class
+  public function callViewStudentProgress(){
+    $storage = new Storage($this->db);
+    $studentProgress = $storage->viewStudentProgress();
+  }
+  public function callViewGroupProgress() {
+    $storage = new Storage($this->db);
+    $groupProgress = $storage->viewGroupProgress();
+  }
 }
  ?>

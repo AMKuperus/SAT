@@ -17,7 +17,7 @@ class Storage {
     public function __construct($db) {
       $this->db = $db;
     }
-//function to retrieve data from post and run through filter_input
+//method to retrieve data from post and run through filter_input
     public function postData() {
       $this->activityID = filter_input(INPUT_POST, 'activityID', FILTER_SANITIZE_NUMBER_INT);;
       $this->activity = filter_input(INPUT_POST, 'activity', FILTER_SANITIZE_STRING);
@@ -28,7 +28,7 @@ class Storage {
       $this->notes = filter_input(INPUT_POST, 'notes', FILTER_SANITIZE_STRING);
   }
 
-//function to view activities
+//method to view activities
     public function viewActivities() {
       $id = $this->activityID;
       $stmt = "SELECT * FROM sat.activity";
@@ -39,7 +39,7 @@ class Storage {
       echo $result['activity']. ' '. $result['type']. ' '. $result['startDate']. ' '. $result['difficulty']. ' '. $result['satisfaction']. ' '. $result['notes'];
 
   }
-  //function to write the initial activity to the database
+  //method to write the student's initial activity to the database
     public function insertActivity() {
       $stmt = "INSERT INTO sat.activity (
         sat.activity.activity,
@@ -65,7 +65,7 @@ class Storage {
       $sql->bindParam(':notes', $_POST['notes'], PDO::PARAM_STR);
       $sql->execute();
     }
-
+//method for student to edit/update their activities
     public function editActivities() {
       $stmt = "UPDATE sat.activity SET activity = :activity,
             type = :type,
@@ -83,8 +83,10 @@ class Storage {
       $sql->bindParam(':activityID', $_POST['activityID'], PDO::PARAM_INT);
       $sql->execute();
   }
-//function to add an end date to the activity when finish is clicked
-//creates a timestamp and sets it into day-month-year hour-minute-seconds format
+//method to add an end date to the activity when student clicks 'finish' to close
+//an activity
+//this method creates a timestamp and sets it to day-month-year hour-minute-seconds
+//timezone is set to Europe/Amsterdam in index.php
     public function finishActivity() {
       $today = date('Y-m-d H:i:s');
       echo $today;
@@ -94,5 +96,24 @@ class Storage {
       $sql->bindParam(':endDate', $today, PDO::PARAM_STR);
       $sql->execute();
   }
+//method to view a student's progress based on the userId connected to the student
+    public function viewStudentProgress() {
+      $stmt = "SELECT activity,type,startDate,endDate,satisfaction,difficulty,notes FROM sat.activity WHERE userId = :userId";
+      $sql = $this->db->prepare($stmt);
+      $sql->bindParam(':userId', $_POST['userId'], PDO::PARAM_STR);
+      $sql->execute();
+    //  $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+      while ($row = $sql->fetchAll(PDO::FETCH_ASSOC)) {
+        var_dump($row);
+      }
+    }
+//method to view a group's activities, selects all activities from activity TABLE
+//selects by groupID
+    public function viewGroupProgress() {
+      $stmt = "SELECT * FROM sat.activity WHERE groupID = :groupID";
+      $sql = $this->db->prepare($stmt);
+      $sql->bindParam(':userId', $_POST['userId'], PDO::PARAM_STR);
+      $sql->execute();
+    }
 }
  ?>
