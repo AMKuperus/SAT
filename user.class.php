@@ -46,9 +46,5 @@ class Student extends User {
     $finish = $storage->finishActivity();
   }
 
-//test function to be removed on final version
-  public function testFunction() {
-    echo "Test";
-  }
 }
  ?>

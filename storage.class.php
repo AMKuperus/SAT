@@ -4,6 +4,7 @@ class Storage {
   public $userName;
   public $activity;
   public $activityID;
+  public $userId;
   public $type;
   public $startDate;
   public $endDate;
@@ -26,9 +27,7 @@ class Storage {
       $this->satisfaction = filter_input(INPUT_POST, 'satisfaction', FILTER_SANITIZE_NUMBER_INT);
       $this->notes = filter_input(INPUT_POST, 'notes', FILTER_SANITIZE_STRING);
   }
-    public function returnData() {
-      $this->postData();
-    }
+
 //function to view activities
     public function viewActivities() {
       $id = $this->activityID;
