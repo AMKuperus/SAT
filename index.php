@@ -2,6 +2,7 @@
 <?php
   //Make sure to use strict mode for session as security measure.
   ini_set('session.use_strict_mode', 1);
+  date_default_timezone_set("Europe/Amsterdam");
   //sessionStart();
   sessionRegenerate();
   //http://php.net/manual/en/function.session-create-id.php
