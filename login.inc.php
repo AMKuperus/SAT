@@ -20,15 +20,15 @@
   //(one error for all so we never reveal what the problem might be)
 ##Login page include
 
+  require_once 'jumper.inc.php';
   include 'functions.inc.php';
-
 
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(isset($_POST['userName']) && isset($_POST['pass'])) {
       $username = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
       $password = createHash($_POST['pass']);
 
-      require_once 'jumper.inc.php';
+      print_r(logUser($db, $username));
     } else {
       //warning for not filling in field
     }
