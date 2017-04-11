@@ -27,6 +27,13 @@ CREATE TABLE role (
   role VARCHAR(20) NOT NULL
 );
 
+CREATE TABLE groups (
+  groupID int(10) UNSIGNED NOT NULL,
+  userId int(10) UNSIGNED NOT NULL,
+  type varchar(255) NOT NULL,
+  description varchar(255) DEFAULT NULL,
+  PRIMARY KEY (groupID)
+);
 
 # Rechten voor `itvitae`@`localhost`
 
