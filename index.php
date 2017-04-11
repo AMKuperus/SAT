@@ -42,7 +42,10 @@
   <?php
     require_once 'jumper.inc.php';
     include 'storage.class.php'; include 'user.class.php'; //include 'test.class.php';
-    include 'login.inc.php'; include 'test2.inc.php';    //include 'test.inc.php';
+    include 'login.inc.php';     //include 'test.inc.php';
   ?>
+  <div class='box'>
+    <?php include 'test2.inc.php'; ?>
+  </div>
 </body>
 </html>
