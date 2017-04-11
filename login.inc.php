@@ -15,27 +15,25 @@
 //TODO attach in session the role of the user
 //TODO different permissions = different parts of php per role
 //TODO isset checks fields
-//TODO error when username/password not there
-  //(one error for all so we never reveal what the problem might be)
 ##Login page include
 
   require_once 'jumper.inc.php';
   include 'functions.inc.php';
-  if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if(isset($_POST['userName']) && isset($_POST['pass'])) {
-      $username = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
-      $password = $_POST['pass'];
-      //TODO let db function return string so we do not need implode
-      $pc = implode(logUser($db, $username));
-      // Check if the passCode's match
-      if(password_verify($password, $pc)) {
-        echo "<h1>CHECK</h1>";
-      } else {
-        echo "dang....";
-      }
 
+  if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if(!isset($_POST['userName']) || !isset($_POST['pass']) || empty($_POST['userName']) || empty($_POST['pass'])) {
+      echo "<code>Wrong input. Try again or register.</code>";
     } else {
-      //warning for not filling in field
+      $username = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
+      //Grab the password from the database
+      $password = logUser($db, $username);
+      // Check if the passwor is match
+      if(password_verify($_POST['pass'], $password)) {
+        echo "<code>Welcome $username</code>";
+        //TODO do something with the session so we can identify the user
+      } else {
+        echo "<code>Wrong input. Try again or register.</code>";
+      }
     }
   }
 ?>
