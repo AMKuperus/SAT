@@ -13,7 +13,6 @@
     //renew token if there is activity, else destroy session
     //start_session()-session_id()-session_cache_expire()-session_regenate_id()
 //TODO attach in session the role of the user
-//TODO DB function for checking username/password match
 //TODO different permissions = different parts of php per role
 //TODO isset checks fields
 //TODO error when username/password not there

@@ -6,7 +6,6 @@ $w = new Storage($db);
 //$y = new Car();
 //$z = new Spaceship();
 //creates new instance of Student class (child of User)
-<<<<<<< HEAD
 //echo '<p>Welcome ' . $x->userName . '</p>';
 //$x->testPedals();
 //$y->testEngine();
@@ -28,7 +27,6 @@ if (isset($_POST['finish'])) {
   $w->finishActivity();
 }
 
-=======
 echo '<p>Welcome ' . $x->userName . '</p>';
 $x->testPedals();
 $y->testEngine();
@@ -41,5 +39,4 @@ echo '<form method=POST>
 
 $t = new Test();
 $t->showField();
->>>>>>> origin/master
 ?>
