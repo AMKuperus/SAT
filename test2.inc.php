@@ -12,10 +12,11 @@ echo '<form class="" action="" method="POST">
       <input type=number name=satisfaction><br>
       <input type=text name=notes><br>
       <input type=submit name=submit>
+      <input type=submit name=finish value="Finish activity">
       </form>';
-if (isset($_POST['submit'])) {
+if (isset($_POST['finish'])) {
   $x->postData();
-  $y->callViewActivities();
+  $y->callFinishActivity();
 }
 
 ?>

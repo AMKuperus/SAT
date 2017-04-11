@@ -41,6 +41,10 @@ class Student extends User {
     $storage = new Storage($this->db);
     $edit = $storage->editActivities();
 }
+  public function callFinishActivity() {
+    $storage = new Storage($this->db);
+    $finish = $storage->finishActivity();
+  }
 
 //test function to be removed on final version
   public function testFunction() {

@@ -30,17 +30,14 @@ class Storage {
       $this->postData();
     }
 //function to view activities
-//TODO: Not functional yet
-//TODO: prints an empty array, but should show row where activityID is the same
-//      as the activityID in the HTML form
     public function viewActivities() {
       $id = $this->activityID;
-      $stmt = "SELECT * FROM sat.activity WHERE activityID = ':activityID'";
+      $stmt = "SELECT * FROM sat.activity";
       $sql = $this->db->prepare($stmt);
-      $sql->bindParam(':activityID', $id, PDO::PARAM_STR);
+      $sql->bindParam(':activityID', $_POST['activityID'], PDO::PARAM_STR);
       $sql->execute();
-      $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-      print_r($result);
+      $result = $sql->fetch();
+      echo $result['activity']. ' '. $result['type']. ' '. $result['startDate']. ' '. $result['difficulty']. ' '. $result['satisfaction']. ' '. $result['notes'];
 
   }
   //function to write the initial activity to the database
@@ -92,11 +89,9 @@ class Storage {
 //function to add an end date to the activity when finish is clicked
 //creates a timestamp and sets it into day-month-year hour-minute-seconds format
     public function finishActivity() {
-      $today = date('y-m-d H:i:s');
-      $phpdate = strtotime($today);
-      echo $phpdate;
-      $stmt = "UPDATE sat.activity SET endDate = :$phpdate)";
-//      $query = "SELECT UNIX_TIMESTAMP(endDate) FROM sat.activity WHERE endDate = :endDate";
+      $today = date('Y-m-d H:i:s');
+      echo $today;
+      $stmt = "UPDATE sat.activity SET endDate = :$today)";
       $sql = $this->db->prepare($stmt);
       //PDO:PARAM_STR used for date/timestamp, perhaps incorrect paramater usage
       $sql->bindParam(':endDate', $today, PDO::PARAM_STR);
