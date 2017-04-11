@@ -83,4 +83,13 @@ function showAllRoles(&$db) {
   $ask->execute();
   return $ask->fetchAll(PDO::FETCH_COLUMN);
 }
+
+//Retrieve passCode belonging to user
+function logUser(&$db, $user) {
+  $sql = "SELECT passCode FROM sat.users WHERE userName = :user";
+  $ask = $db->prepare($sql);
+  $ask->bindValue(':user', $user, PDO::PARAM_STR);
+  $ask->execute();
+  return $ask->fetch(PDO::FETCH_ASSOC);
+}
 ?>
