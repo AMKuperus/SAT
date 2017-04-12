@@ -46,16 +46,16 @@
   $role = '';//TODO create funtion for retrieveing role and add it here from userclass??
     switch($role) {
       case 'user':
-      //user include
+        include 'user.inc.php';
         break;
       case 'student':
-      //student include
+        include 'student.inc.php';
         break;
       case 'monitor':
-      //monitor include
+        include 'monitor.inc.php';
         break;
       case 'admin':
-      //admin include
+        include 'admin.inc.php';
         break;
       default:
         include 'login.inc.php';
