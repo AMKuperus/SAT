@@ -1,5 +1,5 @@
 <?php
-//instance to create a new class named User
+
 class User {
   //class variable, set to public for it to be used outside the class
   public $firstName;
@@ -14,20 +14,15 @@ class User {
   public $storage;
 
   public function __construct($db) {
-    $this->firstName = "SELECT userName FROM sat.users";
-    $this->lastName = "SELECT lastName FROM sat.users";
-    $this->email = "SELECT email FROM sat.users";
-    $this->userName = "SELECT userName FROM sat.users";
-    $this->role = "SELECT role FROM sat.users";
-
     //user stuff pulled from db on correct login
+    $this->firstName =   "";
+    $this->lastName  =   "";
+    $this->email     =   "";
+    $this->userName  =   "";
+    $this->role      =   "";
     $this->db = $db;
+
   }
-
-//protected class variables, only to be used inside superclass and child classes
-//public function can be called outside the class
-//private function can only be used inside the class
-
 }
 
 class Student extends User {

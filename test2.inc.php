@@ -4,22 +4,44 @@ $x = new Storage($db);
 $y = new Student($db);
 $z = new Monitor($db);
 
-echo '<form class="" action="" method="POST">
-<span class=small>UserID</span>   <input type=text name=userId><br>
-<span class=small>GroupID</span>   <input type=text name=GroupID><br>
-<span class=small>ActivityID</span>      <input type=text name=activityID><br>
-<span class=small>Activity</span>      <input type=text name=activity><br>
-<span class=small>Type</span>      <input type=text name=type><br>
-<span class=small>startDate</span>      <input type=date name=startDate><br>
-<span class=small>difficulty</span>      <input type=number name=difficulty><br>
-<span class=small>satisfaction</span>      <input type=number name=satisfaction><br>
-<span class=small>notes</span>      <input type=text name=notes><br>
+/*echo '<form style=font-family:sans-serif; action="" method="POST">
+UserID   <input type=text name=userId><br>
+GroupID   <input type=text name=groupID><br>
+ActivityID      <input type=text name=activityID><br>
+Activity     <input type=text name=activity><br>
+Type     <input type=text name=type><br>
+startDate      <input type=date name=startDate><br>
+difficulty      <input type=number name=difficulty><br>
+satisfaction     <input type=number name=satisfaction><br>
+notes     <input type=text name=notes><br>
       <input type=submit name=submit>
       <input type=submit name=finish value="Finish activity">
-      </form>';
+      <br>
+      <br>
+      <select>
+        <option value="PHP" name=group>PHP</option>
+        <option value="HTML" name=html>HTML</option>
+      </select>
+
+      </form>';*/
+echo '<form style=font-family:sans-serif; action="" method="POST">
+UserID   <input type=text name=userId><br>
+<br>
+<br>
+<select>
+<option value="PHP" name=groupID>PHP</option>
+<option value="HTML" name=groupID>HTML</option>
+<input type=submit name=submit>
+</select>
+</form>';
+
+
+
+
 if (isset($_POST['submit'])) {
   $x->postData();
-  $z->callViewStudentProgress();
+  //$z->callAssignGroup();
+  $x->allGroups();
 }
 
 ?>

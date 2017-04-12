@@ -136,5 +136,13 @@ class Storage {
       $stmt = "UPDATE sat.activity SET groupID = :groupID WHERE userId = :userId";
       $sql->bindParam(':groupID', $_POST['groupID'], PDO::PARAM_STR);
     }
+    //show all roles
+    public function allGroups() {
+      $sql = "SELECT * FROM sat.groups";
+      $ask = $db->prepare($sql);
+      $ask->execute();
+      return $ask->fetchAll(PDO::FETCH_COLUMN);
+      var_dump($ask);
+    }
 }
  ?>
