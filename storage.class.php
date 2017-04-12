@@ -139,10 +139,11 @@ class Storage {
     //show all roles
     public function allGroups() {
       $sql = "SELECT * FROM sat.groups";
-      $ask = $db->prepare($sql);
+      $ask = $this->db->prepare($sql);
       $ask->execute();
+      $result = $ask->fetchAll();
+      var_dump($result);
       return $ask->fetchAll(PDO::FETCH_COLUMN);
-      var_dump($ask);
     }
 }
  ?>
