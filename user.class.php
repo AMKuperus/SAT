@@ -14,9 +14,14 @@ class User {
   public $storage;
 
   public function __construct($db) {
+    $this->firstName = "SELECT userName FROM sat.users";
+    $this->lastName = "SELECT lastName FROM sat.users";
+    $this->email = "SELECT email FROM sat.users";
+    $this->userName = "SELECT userName FROM sat.users";
+    $this->role = "SELECT role FROM sat.users";
+
     //user stuff pulled from db on correct login
     $this->db = $db;
-    $this->userName = 'Puk van de Petterflet';
   }
 
 //protected class variables, only to be used inside superclass and child classes
@@ -58,6 +63,14 @@ class Monitor extends User {
   public function callViewGroupProgress() {
     $storage = new Storage($this->db);
     $groupProgress = $storage->viewGroupProgress();
+  }
+  public function callViewAllStudentProgress() {
+    $storage = new Storage($this->db);
+    $allStudents = $storage->viewAllStudentProgress();
+  }
+  public function callAssignGroup() {
+    $storage = new Storage($this->db);
+    $assign = $storage->assignGroup();
   }
 }
  ?>
