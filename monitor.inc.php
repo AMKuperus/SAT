@@ -1,3 +1,3 @@
 <?php
-  echo 'monitor include';
+  echo '<div class="box">Monitor include</div>';
 ?>

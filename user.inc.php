@@ -1,3 +1,3 @@
 <?php
-  echo 'User include';
+  echo '<div class="box">User include</div>';
 ?>

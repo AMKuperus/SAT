@@ -1,3 +1,3 @@
 <?php
-  echo 'admin include';
+  echo '<div class="box">Admin include</div>';
 ?>
