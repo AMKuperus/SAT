@@ -89,7 +89,6 @@ class Storage {
 //timezone is set to Europe/Amsterdam in index.php
     public function finishActivity() {
       $today = date('Y-m-d H:i:s');
-      echo $today;
       $stmt = "UPDATE sat.activity SET endDate = :endDate WHERE activityID = :activityID";
       $sql = $this->db->prepare($stmt);
       $sql->bindParam(':activityID', $_POST['activityID'], PDO::PARAM_INT);
@@ -102,18 +101,40 @@ class Storage {
       $sql = $this->db->prepare($stmt);
       $sql->bindParam(':userId', $_POST['userId'], PDO::PARAM_STR);
       $sql->execute();
-    //  $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-      while ($row = $sql->fetchAll(PDO::FETCH_ASSOC)) {
-        var_dump($row);
-      }
-    }
+      $result = $sql->fetchAll();
+        foreach($result as $row) {
+          echo $row['activity']. ' - ' .$row['type']. ' - '. $row['startDate'].
+          ' - '.$row['endDate']. ' - ' .$row['satisfaction']. ' - '. $row['difficulty']. ' - ' .$row['notes']. ' ';
+
+}
+  }
 //method to view a group's activities, selects all activities from activity TABLE
 //selects by groupID
     public function viewGroupProgress() {
-      $stmt = "SELECT * FROM sat.activity WHERE groupID = :groupID";
+      $stmt = "SELECT activity,type,startDate,endDate,satisfaction,difficulty,notes FROM sat.activity WHERE groupID = :groupID";
       $sql = $this->db->prepare($stmt);
-      $sql->bindParam(':userId', $_POST['userId'], PDO::PARAM_STR);
+      $sql->bindParam(':groupID', $_POST['groupID'], PDO::PARAM_STR);
       $sql->execute();
+      $result = $sql ->fetchAll();
+        foreach($result as $row) {
+          echo $row['activity']. ' - ' .$row['type']. ' - ' .$row['startDate'].
+          ' - ' .$row['endDate']. ' - ' .$row['satisfaction']. ' - ' .$row['difficulty']. ' - ' .$row['notes']. ' <br>';
+        }
+    }
+  //method to view the progress of all students registered in SAT
+    public function viewAllStudentProgress() {
+      $stmt = "SELECT activity,type,startDate,endDate,satisfaction,difficulty,notes FROM sat.activity";
+      $sql = $this->db->prepare($stmt);
+      $sql->execute();
+      $result = $sql->fetchAll();
+        foreach($result as $row) {
+          echo $row['activity']. ' - ' .$row['type']. ' - ' .$row['startDate'].
+          ' - ' .$row['endDate']. ' - ' .$row['satisfaction']. ' - ' .$row['difficulty']. ' - ' .$row['notes']. ' <br>';
+      }
+    }
+    public function assignGroup() {
+      $stmt = "UPDATE sat.activity SET groupID = :groupID WHERE userId = :userId";
+      $sql->bindParam(':groupID', $_POST['groupID'], PDO::PARAM_STR);
     }
 }
  ?>
