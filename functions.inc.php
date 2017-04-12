@@ -72,4 +72,13 @@
     $token = strtr(base64_encode(openssl_random_pseudo_bytes(16)), '+/=', 'duh');
     return $token;
   }
+
+  //Creates a html <select> from a array[]
+  function createSelectBox($array) {
+    echo '<select>';
+    foreach($array as $a) {
+      echo '<option value="' . $a . '">' . $a . '</option>';
+    }
+    echo '</select>';
+  }
 ?>
