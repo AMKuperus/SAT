@@ -4,7 +4,7 @@ $x = new Storage($db);
 $y = new Student($db);
 $z = new Monitor($db);
 
-/*echo '<form style=font-family:sans-serif; action="" method="POST">
+echo '<form style=font-family:sans-serif; action="" method="POST">
 UserID   <input type=text name=userId><br>
 GroupID   <input type=text name=groupID><br>
 ActivityID      <input type=text name=activityID><br>
@@ -18,30 +18,16 @@ notes     <input type=text name=notes><br>
       <input type=submit name=finish value="Finish activity">
       <br>
       <br>
-      <select>
-        <option value="PHP" name=group>PHP</option>
-        <option value="HTML" name=html>HTML</option>
-      </select>
-
-      </form>';*/
-echo '<form style=font-family:sans-serif; action="" method="POST">
-UserID   <input type=text name=userId><br>
-<br>
-<br>
-<select>
-<option value="PHP" name=groupID>PHP</option>
-<option value="HTML" name=groupID>HTML</option>
-<input type=submit name=submit>
-</select>
-</form>';
-
-
-
+      </form>';
+//$test runs returnGroup method from Storage class
+$test = $x->returnGroup();
+//runs createSelectBox function from functions.inc with array from returnGroup method
+createSelectBox($test);
 
 if (isset($_POST['submit'])) {
   $x->postData();
   //$z->callAssignGroup();
-  $x->allGroups();
+  $x->returnGroup();
 }
 
 ?>
