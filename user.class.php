@@ -22,7 +22,7 @@ class User {
     $this->email      =   "";
     $this->groupID    =   "";
     $this->role       =   "";
-    $this->state      =     ;
+    $this->state      =   "";
     $this->db = $db;
 
   }
