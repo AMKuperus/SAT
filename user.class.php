@@ -3,7 +3,7 @@
 class User {
   //class variable, set to public for it to be used outside the class
   public $userName;
-  public $userId;
+  public $userID;
   public $firstName;
   public $lastName;
   public $email;
@@ -16,7 +16,7 @@ class User {
   public function __construct($db, $user) {
     //user stuff pulled from db on correct login
     $this->userName   =   $user->userName;
-    $this->userId     =   $user->userId;
+    $this->userID     =   $user->userID;
     $this->firstName  =   $user->firstName;
     $this->lastName   =   $user->lastName;
     $this->email      =   $user->email;
@@ -26,7 +26,6 @@ class User {
     $this->db = $db;
 
   }
-
 
 }
 
