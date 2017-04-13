@@ -143,9 +143,17 @@ class Storage {
       $sql = "SELECT * FROM sat.groups";
       $ask = $this->db->prepare($sql);
       $ask->execute();
-      $result = $ask->fetchall();
+      $result = $ask->fetchAll();
       var_dump($result);
       //return $ask->fetchAll(PDO::FETCH_COLUMN);
+    }
+
+    //Return a array[] with the roles and roleID
+    public function returnAllRoles() {
+      $sql = "SELECT role, roleID FROM sat.role";
+      $ask = $this->db->prepare($sql);
+      $ask->execute();
+      return $ask->fetchAll(PDO::FETCH_COLUMN);
     }
 }
  ?>

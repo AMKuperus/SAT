@@ -42,6 +42,7 @@
   <!--switch to include login or studentpages or teacherpages detected from sessionvariable-->
   <?php
   require_once 'jumper.inc.php';
+  include 'storage.class.php'; include 'user.class.php';
 
   $role = '';//TODO create funtion for retrieveing role and add it here from userclass??
     switch($role) {
@@ -63,11 +64,22 @@
 
     $user = getUser($db, 'testuser');
     var_dump($user);
+    echo '<hr>';
+    $test = new User($db, $user);
+    var_dump($test);
+    echo '<hr>';
+    echo $test->userName . $test->userID;
+    echo '<div class=box style=z-index:1>';
+    $c = new Storage($db);
+    $roles = $c->returnAllRoles();
+    var_dump($roles);
+    createSelectBox($roles);
+    echo '</div';
   ?>
 
   <!--                    Cleanup this part and organize                     -->
   <?php
-    include 'storage.class.php'; include 'user.class.php';
+
     //include 'test.class.php'; //include 'test.inc.php';
   ?>
   <div class='box'>
