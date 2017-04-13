@@ -1,8 +1,8 @@
 <?php
 
 $x = new Storage($db);
-$y = new Student($db);
-$z = new Monitor($db);
+$y = new Student($db, $user);
+$z = new Monitor($db, $user);
 
 echo '<form style=font-family:sans-serif; action="" method="POST">
 UserID   <input type=text name=userId><br>
