@@ -93,10 +93,9 @@ function logUser(&$db, $user) {
   return $ask->fetchColumn();
 }
 
-//TODO getuser clas
 //Get all user stuff from database as a object
 function getUser(&$db, $user) {
-  $sql = "SELECT userID, firstName, lastName, email, groupID, role, state
+  $sql = "SELECT userName, userID, firstName, lastName, email, groupID, role, state
           FROM sat.users
           WHERE userName = :user";
   $ask = $db->prepare($sql);
