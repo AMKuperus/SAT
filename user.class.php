@@ -2,14 +2,14 @@
 
 class User {
   //class variable, set to public for it to be used outside the class
+  public $userName;
+  public $userId;
   public $firstName;
   public $lastName;
   public $email;
-  public $pass;
-  public $state;
-  public $token;
-  public $userName;
+  public $groupID;
   public $role;
+  public $state;
   public $db;
   public $storage;
 
@@ -23,6 +23,8 @@ class User {
     $this->db = $db;
 
   }
+
+
 }
 
 class Student extends User {
