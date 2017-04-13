@@ -3,6 +3,8 @@
 $x = new Storage($db);
 $y = new Student($db, $user);
 $z = new Monitor($db, $user);
+$u = new User($db, $user);
+echo $u->userID. $u->userName;
 
 echo '<form style=font-family:sans-serif; action="" method="POST">
 UserID   <input type=text name=userId><br>
@@ -20,14 +22,14 @@ notes     <input type=text name=notes><br>
       <br>
       </form>';
 //$test runs returnGroup method from Storage class
-$test = $x->returnGroup();
+$test = $x->returnGroups();
 //runs createSelectBox function from functions.inc with array from returnGroup method
 createSelectBox($test);
 
 if (isset($_POST['submit'])) {
   $x->postData();
   //$z->callAssignGroup();
-  $x->returnGroup();
+  $x->returnGroups();
 }
 
 ?>

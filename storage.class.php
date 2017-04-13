@@ -139,11 +139,13 @@ class Storage {
 //method to return the 3rd row (group) from the groups table
 //fetches first row
 //TODO: find out how to fetch third row
-    public function returnGroup() {
+    public function returnGroups() {
       $sql = "SELECT * FROM sat.groups";
       $ask = $this->db->prepare($sql);
       $ask->execute();
-      return $ask->fetchAll(PDO::FETCH_COLUMN);
+      $result = $ask->fetchall();
+      var_dump($result);
+      //return $ask->fetchAll(PDO::FETCH_COLUMN);
     }
 }
  ?>

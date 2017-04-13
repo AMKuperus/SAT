@@ -24,9 +24,7 @@ class User {
     $this->role       =   $user->role;
     $this->state      =   $user->state;
     $this->db = $db;
-
   }
-
 }
 
 class Student extends User {
