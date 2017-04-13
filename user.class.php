@@ -15,11 +15,14 @@ class User {
 
   public function __construct($db) {
     //user stuff pulled from db on correct login
-    $this->firstName =   "";
-    $this->lastName  =   "";
-    $this->email     =   "";
-    $this->userName  =   "";
-    $this->role      =   "";
+    $this->userName   =   "";
+    $this->userId     =   "";
+    $this->firstName  =   "";
+    $this->lastName   =   "";
+    $this->email      =   "";
+    $this->groupID    =   "";
+    $this->role       =   "";
+    $this->state      =     ;
     $this->db = $db;
 
   }
