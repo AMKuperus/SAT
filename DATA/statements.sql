@@ -28,10 +28,9 @@ CREATE TABLE role (
 );
 
 CREATE TABLE groups (
-  groupID int(10) UNSIGNED NOT NULL,
-  userId int(10) UNSIGNED NOT NULL,
-  type varchar(255) NOT NULL,
-  description varchar(255) DEFAULT NULL,
+  groupID INT(10) NOT NULL AUTO_INCREMENT,
+  type VARCHAR(10) NOT NULL,
+  description VARCHAR(255) DEFAULT NULL,
   PRIMARY KEY (groupID)
 );
 
