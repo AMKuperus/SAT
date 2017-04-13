@@ -92,4 +92,16 @@ function logUser(&$db, $user) {
   $ask->execute();
   return $ask->fetchColumn();
 }
+
+//TODO getuser clas
+//Get all user stuff from database as a object
+function getUser(&$db, $user) {
+  $sql = "SELECT userID, firstName, lastName, email, groupID, role, state
+          FROM sat.users
+          WHERE userName = :user";
+  $ask = $db->prepare($sql);
+  $ask->bindValue(':user', $user, PDO::PARAM_STR);
+  $ask->execute();
+  return $ask->fetchObject();
+}
 ?>

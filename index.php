@@ -60,6 +60,9 @@
       default:
         include 'login.inc.php';
     }
+
+    $user = getUser($db, 'testuser');
+    var_dump($user);
   ?>
 
   <!--                    Cleanup this part and organize                     -->
