@@ -13,16 +13,16 @@ class User {
   public $db;
   public $storage;
 
-  public function __construct($db) {
+  public function __construct($db, $user) {
     //user stuff pulled from db on correct login
-    $this->userName   =   "";
-    $this->userId     =   "";
-    $this->firstName  =   "";
-    $this->lastName   =   "";
-    $this->email      =   "";
-    $this->groupID    =   "";
-    $this->role       =   "";
-    $this->state      =   "";
+    $this->userName   =   $user->userName;
+    $this->userId     =   $user->userId;
+    $this->firstName  =   $user->firstName;
+    $this->lastName   =   $user->lastName;
+    $this->email      =   $user->email;
+    $this->groupID    =   $user->groupID;
+    $this->role       =   $user->role;
+    $this->state      =   $user->state;
     $this->db = $db;
 
   }
