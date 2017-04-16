@@ -153,7 +153,14 @@ class Storage {
       $sql = "SELECT role, roleID FROM sat.role";
       $ask = $this->db->prepare($sql);
       $ask->execute();
-      return $ask->fetchAll(PDO::FETCH_COLUMN);
+      //get each result from db with a while loop
+      $arr = [];
+      while ($ret = $ask->fetch()) {
+        //push the data into $arr[]
+        $arr += array($ret['roleID'] => $ret['role']);
+      }
+      //return teh array
+      return $arr;
     }
 }
  ?>
