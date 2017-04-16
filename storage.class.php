@@ -136,19 +136,20 @@ class Storage {
       $stmt = "UPDATE sat.activity SET groupID = :groupID WHERE userId = :userId";
       $sql->bindParam(':groupID', $_POST['groupID'], PDO::PARAM_STR);
     }
-//method to return the 3rd row (group) from the groups table
-//fetches first row
-//TODO: find out how to fetch third row
+
+    //Retun a array[] with groupID and group from sat.groups
     public function returnGroups() {
-      $sql = "SELECT * FROM sat.groups";
+      $sql = "SELECT groupID, `group` FROM sat.groups";
       $ask = $this->db->prepare($sql);
       $ask->execute();
-      $result = $ask->fetchAll();
-      var_dump($result);
-      //return $ask->fetchAll(PDO::FETCH_COLUMN);
+      $arr = [];
+      while ($ret = $ask->fetch()) {
+        $arr += array($ret['groupID'] => $ret['group']);
+      }
+      return $arr;
     }
 
-    //Return a array[] with the roles and roleID
+    //Return a array[] with the roles and roleID from sat.role
     public function returnAllRoles() {
       $sql = "SELECT role, roleID FROM sat.role";
       $ask = $this->db->prepare($sql);

@@ -68,7 +68,6 @@
     echo '<div class=box style=z-index:1>';
     $c = new Storage($db);
     $roles = $c->returnAllRoles();
-    print_r($roles);
     createSelectBox($roles);
     echo '</div';
   ?>
