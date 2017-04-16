@@ -69,7 +69,7 @@
     $c = new Storage($db);
     $roles = $c->returnAllRoles();
     createSelectBox($roles);
-    echo '</div';
+    echo '</div>';
   ?>
 
   <!--                    Cleanup this part and organize                     -->
