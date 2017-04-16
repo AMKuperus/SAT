@@ -40,3 +40,7 @@ CREATE TABLE groups (
 GRANT SELECT, INSERT, UPDATE, DELETE ON *.* TO 'itvitae'@'localhost' IDENTIFIED BY PASSWORD '*69C739191FDD75AA6B6641465E26590D15055734';
 
 GRANT ALL PRIVILEGES ON `sat`.* TO 'itvitae'@'localhost';
+
+INSERT INTO `groups`(`group`, `type`, `description`) VALUES ('PHP19', 'PHP', 'descriptonPHP19')
+INSERT INTO `groups`(`group`, `type`, `description`) VALUES ('PHP14', 'PHP', 'descriptonPHP14')
+INSERT INTO `groups`(`group`, `type`, `description`) VALUES ('CS18', 'CS', 'descriptonCS18')
