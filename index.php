@@ -63,16 +63,12 @@
     }
 
     $user = getUser($db, 'testuser');
-    var_dump($user);
-    echo '<hr>';
     $test = new User($db, $user);
-    var_dump($test);
-    echo '<hr>';
     echo $test->userName . $test->userID;
     echo '<div class=box style=z-index:1>';
     $c = new Storage($db);
     $roles = $c->returnAllRoles();
-    var_dump($roles);
+    print_r($roles);
     createSelectBox($roles);
     echo '</div';
   ?>

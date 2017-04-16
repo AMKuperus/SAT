@@ -77,7 +77,7 @@
   function createSelectBox($array) {
     echo '<select>';
     foreach($array as $k => $v) {
-      echo '<option value="' . $k . '">' . $v . '</option>';
+      echo '<option value="' . $k . '">' . $v . '</option>' . PHP_EOL;
     }
     echo '</select>';
   }
