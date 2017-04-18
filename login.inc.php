@@ -25,9 +25,11 @@ echo '<form class="box loginbox" action="" method="POST">
       $password = logUser($db, $username);
       // Check if the password is match
       if(password_verify($_POST['pass'], $password)) {
-        echo "<code>Welcome $username</code>";
         //TODO do something with the session so we can identify the user
         $user = new User($db, getUser($db, $username));
+        $_SESSION['userName'] = $user->userName;
+        //Create token/timestamp/encrypted cookie
+        echo '<code>Welcome ' . $user->firstName . '!</code>';
       } else {
         echo "<small class=error>Wrong input. Try again or register.</small>";
       }

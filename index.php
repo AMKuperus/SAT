@@ -6,6 +6,7 @@
   date_default_timezone_set("Europe/Amsterdam");
   sessionStart();
   sessionRegenerate();
+
   //http://php.net/manual/en/function.session-create-id.php
   //https://www.security.nl/posting/29281/PHP+sessions%3B+hoe+het+wel+moet
   include 'head.inc.php';
@@ -36,6 +37,11 @@
     echo 'Session_id: ' . $id;
   }
 
+  if(isset($_SESSION['userName'])) {
+    $user = $_SESSION['userName'];
+    echo '<hr>User: ' . $user . '<hr>';
+  }
+
 ?>
 <body>
   <h1>Student Activity Tracker</h1>
@@ -43,6 +49,8 @@
   <?php
   require_once 'jumper.inc.php';
   include 'storage.class.php'; include 'user.class.php';
+
+  //TODO if isset userNAme from session create user to work with
 
   $role = '';//TODO create funtion for retrieveing role and add it here from userclass??
     switch($role) {
@@ -80,7 +88,7 @@
 
     //include 'test.class.php'; //include 'test.inc.php';
   ?>
-  <div class='box'>
+  <div class='box' style='margin-left: 65vw;'>
     <?php include 'test2.inc.php'; ?>
   </div>
 </body>

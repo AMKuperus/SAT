@@ -10,8 +10,8 @@ class User {
   public $groupID;
   public $role;
   public $state;
-  public $db;
-  public $storage;
+  //public $db;
+  //public $storage;
 
   public function __construct($db, $user) {
     //user stuff pulled from db on correct login
@@ -23,7 +23,7 @@ class User {
     $this->groupID    =   $user->groupID;
     $this->role       =   $user->role;
     $this->state      =   $user->state;
-    $this->db = $db;
+    //$this->db = $db;
   }
 }
 
