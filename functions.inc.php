@@ -74,8 +74,9 @@
   }
 
   //Creates a html <select> from a array[]
-  function createSelectBox($array) {
-    echo '<select>';
+  //$name is a optianal parameter for the name attribute
+  function createSelectBox($array, $name = "") {
+    echo '<select name="' . $name . '">';
     foreach($array as $k => $v) {
       echo '<option value="' . $k . '">' . $v . '</option>' . PHP_EOL;
     }
