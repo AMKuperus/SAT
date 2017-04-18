@@ -8,7 +8,6 @@ echo $u->userID. $u->userName;
 
 echo '<form style=font-family:sans-serif; action="" method="POST">
 UserID   <input type=text name=userId><br>
-GroupID   <input type=text name=groupID><br>
 ActivityID      <input type=text name=activityID><br>
 Activity     <input type=text name=activity><br>
 Type     <input type=text name=type><br>
@@ -19,17 +18,17 @@ notes     <input type=text name=notes><br>
       <input type=submit name=submit>
       <input type=submit name=finish value="Finish activity">
       <br>
-      <br>
-      </form>';
-//$test runs returnGroup method from Storage class
-$test = $x->returnGroups();
-//runs createSelectBox function from functions.inc with array from returnGroup method
-createSelectBox($test);
+      <br>';
 
+      //$test runs returnGroup method from Storage class
+      $test = $x->returnGroups();
+      createSelectBox($test);
+      //runs createSelectBox function from functions.inc with array from returnGroup method
 if (isset($_POST['submit'])) {
   $x->postData();
   //$z->callAssignGroup();
   $x->assignGroup();
-}
 
+}
+echo '</form>';
 ?>
