@@ -126,7 +126,7 @@ class Storage {
           ' - ' .$row['endDate']. ' - ' .$row['satisfaction']. ' - ' .$row['difficulty']. ' - ' .$row['notes']. ' <br>';
         }
     }
-    
+
     //method to view the progress of all students registered in SAT
     public function viewAllStudentProgress() {
       $sql = "SELECT activity,type,startDate,endDate,satisfaction,difficulty,notes FROM sat.activity";
@@ -141,6 +141,7 @@ class Storage {
     }
 
     //method for monitor to assign group to user in user table
+    //TODO: create name paramater in createSelectBox function (in functions.inc.php)
     public function assignGroup() {
       $sql = "UPDATE sat.users SET groupID = :groupID WHERE userId = :userId";
       $ask = $this->db->prepare($sql);
