@@ -27,6 +27,7 @@ echo '<form class="box loginbox" action="" method="POST">
       if(password_verify($_POST['pass'], $password)) {
         echo "<code>Welcome $username</code>";
         //TODO do something with the session so we can identify the user
+        $user = new User($db, getUser($db, $username));
       } else {
         echo "<small class=error>Wrong input. Try again or register.</small>";
       }

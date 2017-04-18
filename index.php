@@ -62,6 +62,9 @@
         include 'login.inc.php';
     }
 
+    //only for testing remove when done
+    echo "<hr>testuser :: qQ1!QWERTY<hr>";
+
     $user = getUser($db, 'testuser');
     $test = new User($db, $user);
     echo $test->userName . $test->userID;
