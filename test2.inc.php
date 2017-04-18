@@ -29,7 +29,7 @@ createSelectBox($test);
 if (isset($_POST['submit'])) {
   $x->postData();
   //$z->callAssignGroup();
-  $x->returnGroups();
+  $x->assignGroup();
 }
 
 ?>

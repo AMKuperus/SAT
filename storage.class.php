@@ -36,6 +36,7 @@ class Storage {
       $ask->bindParam(':activityID', $_POST['activityID'], PDO::PARAM_STR);
       $ask->execute();
       $result = $ask->fetch();
+  //temporary echo, may change when implemented
       echo $result['activity']. ' '. $result['type']. ' '. $result['startDate']. ' '. $result['difficulty']. ' '. $result['satisfaction']. ' '. $result['notes'];
 
   }
@@ -102,6 +103,7 @@ class Storage {
       $ask->bindParam(':userId', $_POST['userId'], PDO::PARAM_STR);
       $ask->execute();
       $result = $ask->fetchAll();
+  //temporary foreach + echo, may change when implemented
         foreach($result as $row) {
           echo $row['activity']. ' - ' .$row['type']. ' - '. $row['startDate'].
           ' - '.$row['endDate']. ' - ' .$row['satisfaction']. ' - '. $row['difficulty']. ' - ' .$row['notes']. ' ';
@@ -116,6 +118,7 @@ class Storage {
       $ask->bindParam(':groupID', $_POST['groupID'], PDO::PARAM_STR);
       $ask->execute();
       $result = $ask ->fetchAll();
+  //temporary foreach + echo, may change when implemented
         foreach($result as $row) {
           echo $row['activity']. ' - ' .$row['type']. ' - ' .$row['startDate'].
           ' - ' .$row['endDate']. ' - ' .$row['satisfaction']. ' - ' .$row['difficulty']. ' - ' .$row['notes']. ' <br>';
@@ -127,13 +130,14 @@ class Storage {
       $ask = $this->db->prepare($sql);
       $ask->execute();
       $result = $ask->fetchAll();
+  //temporary foreach + echo, may change when implemented
         foreach($result as $row) {
           echo $row['activity']. ' - ' .$row['type']. ' - ' .$row['startDate'].
           ' - ' .$row['endDate']. ' - ' .$row['satisfaction']. ' - ' .$row['difficulty']. ' - ' .$row['notes']. ' <br>';
       }
     }
     public function assignGroup() {
-      $sql = "INSERT INTO sat.activity SELECT groupID FROM sat.groups WHERE userId = userId:";
+      $sql = "INSERT INTO sat.activity (groupID) SELECT groupID FROM sat.groups WHERE userId = userId:";
       $ask->bindParam(':groupID', $_POST['groupID'], PDO::PARAM_STR);
       $ask->bindParam(':userId', $_POST['userId'], PDO::PARAM_STR);
       $ask = $this->db->prepare($sql);
