@@ -42,7 +42,8 @@
   <!--switch to include login or studentpages or teacherpages detected from sessionvariable-->
   <?php
   require_once 'jumper.inc.php';
-  include 'storage.class.php'; include 'user.class.php'; include 'admin.class.php';
+  include 'storage.class.php'; include 'user.class.php'; include 'monitor.class.php';
+  include 'student.class.php'; include 'admin.class.php'; include 'activity.class.php';
 
   //TODO create funtion for retrieveing role and add it here from userclass??
   if(isset($_SESSION['userName']) && isset($_SESSION['usr'])) {

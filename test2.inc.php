@@ -5,6 +5,7 @@ $y = new Student($db, $user);
 $z = new Monitor($db, $user);
 $u = new User($db, $user);
 $v = new Admin($db, $user);
+$t = new Activity($db);
 
 echo $u->userID. $u->userName;
 
@@ -27,7 +28,6 @@ notes     <input type=text name=notes><br>
       //runs createSelectBox function from functions.inc with array from class method
 if (isset($_POST['submit'])) {
   //$z->callAssignGroup();
-  $v->callUpdateRole($db);
 
 }
 echo '</form>';
