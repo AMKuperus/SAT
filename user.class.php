@@ -36,20 +36,20 @@ class Student extends User {
 }
 
 //function/method that calls the insertActivity method from Storage class
-  public function callInsertActivity() {
-    $storage = new Storage($this->db);
+  public function callInsertActivity($db) {
+    $storage = new Storage($db);
     $insert = $storage->insertActivity();
 }
 
 //method to call the editActivities method from Storage class
-  public function callEditActivities() {
-    $storage = new Storage($this->db);
+  public function callEditActivities($db) {
+    $storage = new Storage($db);
     $edit = $storage->editActivities();
 }
 
 //method to call the finishActivity method from Storage class
-  public function callFinishActivity() {
-    $storage = new Storage($this->db);
+  public function callFinishActivity($db) {
+    $storage = new Storage($db);
     $finish = $storage->finishActivity();
   }
 }
@@ -57,23 +57,23 @@ class Student extends User {
 class Monitor extends User {
   //monitor functionality
 //method to call viewStudentProgress method from Storage class
-  public function callViewStudentProgress(){
-    $storage = new Storage($this->db);
+  public function callViewStudentProgress($db){
+    $storage = new Storage($db);
     $studentProgress = $storage->viewStudentProgress();
   }
 
-  public function callViewGroupProgress() {
-    $storage = new Storage($this->db);
+  public function callViewGroupProgress($db) {
+    $storage = new Storage($db);
     $groupProgress = $storage->viewGroupProgress();
   }
 
-  public function callViewAllStudentProgress() {
-    $storage = new Storage($this->db);
+  public function callViewAllStudentProgress($db) {
+    $storage = new Storage($db);
     $allStudents = $storage->viewAllStudentProgress();
   }
 
-  public function callAssignGroup() {
-    $storage = new Storage($this->db);
+  public function callAssignGroup($db) {
+    $storage = new Storage($db);
     $assign = $storage->assignGroup();
   }
 }

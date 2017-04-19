@@ -4,7 +4,7 @@ $x = new Storage($db);
 $y = new Student($db, $user);
 $z = new Monitor($db, $user);
 $u = new User($db, $user);
-$v = new Admin($db);
+//$v = new Admin($db);
 echo $u->userID. $u->userName;
 
 echo '<form style=font-family:sans-serif; action="" method="POST">
