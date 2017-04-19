@@ -6,7 +6,6 @@
   date_default_timezone_set("Europe/Amsterdam");
   sessionStart();
   sessionRegenerate();
-
   //http://php.net/manual/en/function.session-create-id.php
   //https://www.security.nl/posting/29281/PHP+sessions%3B+hoe+het+wel+moet
   include 'head.inc.php';
@@ -37,22 +36,22 @@
     echo 'Session_id: ' . $id;
   }
 
-  if(isset($_SESSION['userName'])) {
-    $user = $_SESSION['userName'];
-    echo '<hr>User: ' . $user . '<hr>';
-  }
-
 ?>
 <body>
   <h1>Student Activity Tracker</h1>
   <!--switch to include login or studentpages or teacherpages detected from sessionvariable-->
   <?php
   require_once 'jumper.inc.php';
-  include 'storage.class.php'; include 'user.class.php';
+  include 'storage.class.php'; include 'user.class.php'; include 'admin.class.php';
 
-  //TODO if isset userNAme from session create user to work with
-
-  $role = '';//TODO create funtion for retrieveing role and add it here from userclass??
+  //$role = '';//TODO create funtion for retrieveing role and add it here from userclass??
+  if(isset($_SESSION['userName']) && isset($_SESSION['usr'])) {
+    echo '<hr>' . $_SESSION['usr'] . '<hr>';
+    $userName = openssl_decrypt($_SESSION['usr'], 'AES-256-CTR', 'itvitae');//TODO encryprion for username
+    echo $userName . '<hr>';
+    $user = new User($db, getUser($db, $userName));
+    $role = $user->role;
+  }
     switch($role) {
       case 'user':
         include 'user.inc.php';
@@ -81,6 +80,10 @@
     $roles = $c->returnAllRoles();
     createSelectBox($roles, "testname");
     echo '</div>';
+    //echo '<div class=box style=z-index:2>';
+    //$ssl = openssl_get_cipher_methods(true);
+    //print_r($ssl);
+    //echo '<div>';
   ?>
 
   <!--                    Cleanup this part and organize                     -->
@@ -88,7 +91,7 @@
 
     //include 'test.class.php'; //include 'test.inc.php';
   ?>
-  <div class='box' style='margin-left: 65vw;'>
+  <div class='box'>
     <?php include 'test2.inc.php'; ?>
   </div>
 </body>

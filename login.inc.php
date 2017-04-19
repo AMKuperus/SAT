@@ -28,6 +28,7 @@ echo '<form class="box loginbox" action="" method="POST">
         //TODO do something with the session so we can identify the user
         $user = new User($db, getUser($db, $username));
         $_SESSION['userName'] = $user->userName;
+        $_SESSION['usr'] = openssl_encrypt($user->userName, 'AES-256-CTR', 'itvitae');
         //Create token/timestamp/encrypted cookie
         echo '<code>Welcome ' . $user->firstName . '!</code>';
       } else {
