@@ -28,6 +28,7 @@ notes     <input type=text name=notes><br>
       //runs createSelectBox function from functions.inc with array from class method
 if (isset($_POST['submit'])) {
   //$z->callAssignGroup();
+  $t->insertActivity();
 
 }
 echo '</form>';
