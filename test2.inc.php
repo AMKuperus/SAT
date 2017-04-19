@@ -20,13 +20,12 @@ notes     <input type=text name=notes><br>
       <br>
       <br>';
 
-      //$test runs returnGroup method from Storage class
       $test = $x->returnAllRoles();
       createSelectBox($test, "role");
-      //runs createSelectBox function from functions.inc with array from returnGroup method
+      //runs createSelectBox function from functions.inc with array from class method
 if (isset($_POST['submit'])) {
   //$z->callAssignGroup();
-  $y->callViewActivities();
+  $x->removeRole();
 
 }
 echo '</form>';

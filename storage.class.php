@@ -7,8 +7,6 @@ class Storage {
     public function __construct($db) {
       $this->db = $db;
     }
-    //method to retrieve data from post and run through filter_input
-
 
     //method to view activities
     public function viewActivities() {
@@ -21,32 +19,23 @@ class Storage {
       echo $result['activity']. ' '. $result['type']. ' '. $result['startDate']. ' '. $result['difficulty']. ' '. $result['satisfaction']. ' '. $result['notes'];
 
   }
+
     //method to write the student's initial activity to the database
     public function insertActivity() {
       $sql = "INSERT INTO sat.activity (
-        sat.activity.activity,
-        sat.activity.type,
-        sat.activity.startDate,
-        sat.activity.difficulty,
-        sat.activity.satisfaction,
-        sat.activity.notes
-      ) VALUES (
-        :activity,
-        :type,
-        :startDate,
-        :difficulty,
-        :satisfaction,
-        :notes)";
+        sat.activity.activity, sat.activity.type, sat.activity.startDate,
+        sat.activity.difficulty, sat.activity.satisfaction, sat.activity.notes)
+        VALUES (:activity, :type, :startDate, :difficulty, :satisfaction, :notes)";
       $ask = $this->db->prepare($sql);
       $ask->bindParam(':activity', $_POST['activity'], PDO::PARAM_STR);
       $ask->bindParam(':type', $_POST['type'], PDO::PARAM_STR);
       $ask->bindParam(':startDate', $_POST['startDate'], PDO::PARAM_STR);
-      // use PARAM_STR even though the input is a number
       $ask->bindParam(':difficulty', $_POST['difficulty'], PDO::PARAM_STR);
       $ask->bindParam(':satisfaction', $_POST['satisfaction'], PDO::PARAM_STR);
       $ask->bindParam(':notes', $_POST['notes'], PDO::PARAM_STR);
       $ask->execute();
     }
+
     //method for student to edit/update their activities
     public function editActivities() {
       $sql = "UPDATE sat.activity SET activity = :activity,
@@ -131,7 +120,6 @@ class Storage {
     }
 
     //method to assign role to a user from a select box
-    //TODO: Role gets returned as A,S,M = what is ideal?
     public function assignRole() {
       $sql = "UPDATE sat.users SET role = :role WHERE userId = :userId";
       $ask = $this->db->prepare($sql);
@@ -166,5 +154,6 @@ class Storage {
       //return the array
       return $arr;
     }
+
 }
  ?>

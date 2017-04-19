@@ -30,8 +30,8 @@ class User {
 class Student extends User {
 //student functionality
 //function/method that calls viewActivities method from Storage class
-  public function callViewActivities() {
-    $storage = new Storage($this->db);
+  public function callViewActivities($db) {
+    $storage = new Storage($db);
     $view = $storage->viewActivities();
 }
 
