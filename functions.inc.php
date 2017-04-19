@@ -18,6 +18,16 @@
     }
   }
 
+  //TODO Encrypt function for encrypring $_SESSION data
+  function encryptThis() {
+
+  }
+
+  //TODO Decrypt function for decrypting $_SESSION data
+  function decryptThis() {
+
+  }
+
   //If $pass is bigger then or 10 and smaller then 72(limit for BCRYPT) return true
   function passLength($pass) {
     if(strlen($pass) >= 10 && strlen($pass) < 72) {
