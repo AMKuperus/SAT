@@ -5,8 +5,6 @@ class Admin extends User {
     $storage = new Storage($db);
     $update = $storage->updateRole();
   }
-  public function removeUser() {
 
-  }
 }
 ?>
