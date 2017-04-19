@@ -1,16 +1,6 @@
 <?php
 class Storage {
 
-  public $userName;
-  public $activity;
-  public $activityID;
-  public $userId;
-  public $type;
-  public $startDate;
-  public $endDate;
-  public $difficulty;
-  public $satisfaction;
-  public $notes;
   public $db;
 
     //pass along $db variable
@@ -18,19 +8,10 @@ class Storage {
       $this->db = $db;
     }
     //method to retrieve data from post and run through filter_input
-    public function postData() {
-      $this->activityID = filter_input(INPUT_POST, 'activityID', FILTER_SANITIZE_NUMBER_INT);;
-      $this->activity = filter_input(INPUT_POST, 'activity', FILTER_SANITIZE_STRING);
-      $this->type = filter_input(INPUT_POST, 'type', FILTER_SANITIZE_STRING);
-      $this->startDate = filter_input(INPUT_POST, 'startDate', FILTER_SANITIZE_NUMBER_INT);
-      $this->difficulty = filter_input(INPUT_POST, 'difficulty', FILTER_SANITIZE_NUMBER_INT);
-      $this->satisfaction = filter_input(INPUT_POST, 'satisfaction', FILTER_SANITIZE_NUMBER_INT);
-      $this->notes = filter_input(INPUT_POST, 'notes', FILTER_SANITIZE_STRING);
-  }
+
 
     //method to view activities
     public function viewActivities() {
-      $id = $this->activityID;
       $sql = "SELECT * FROM sat.activity";
       $ask = $this->db->prepare($sql);
       $ask->bindParam(':activityID', $_POST['activityID'], PDO::PARAM_STR);

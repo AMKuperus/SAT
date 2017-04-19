@@ -25,9 +25,8 @@ notes     <input type=text name=notes><br>
       createSelectBox($test, "role");
       //runs createSelectBox function from functions.inc with array from returnGroup method
 if (isset($_POST['submit'])) {
-  $x->postData();
   //$z->callAssignGroup();
-  $x->assignRole();
+  $y->callViewActivities();
 
 }
 echo '</form>';
