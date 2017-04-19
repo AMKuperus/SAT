@@ -93,7 +93,7 @@
 
     //include 'test.class.php'; //include 'test.inc.php';
   ?>
-  <div class='box'>
+  <div class='box' style='margin-left: 65vw'>
     <?php include 'test2.inc.php'; ?>
   </div>
 </body>
