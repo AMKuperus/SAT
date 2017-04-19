@@ -11,6 +11,7 @@ echo $u->userID. $u->userName;
 
 echo '<form style=font-family:sans-serif; action="" method="POST">
 UserID   <input type=text name=userId><br>
+groupID  <input type=text name=groupID><br>
 ActivityID      <input type=text name=activityID><br>
 Activity     <input type=text name=activity><br>
 Type     <input type=text name=type><br>
@@ -28,7 +29,7 @@ notes     <input type=text name=notes><br>
       //runs createSelectBox function from functions.inc with array from class method
 if (isset($_POST['submit'])) {
   //$z->callAssignGroup();
-  $t->insertActivity();
+  $v->callUpdateRole($db);
 
 }
 echo '</form>';

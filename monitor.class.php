@@ -6,19 +6,19 @@ class Monitor extends User {
   //method to call viewStudentProgress method from Storage class
   public function callViewStudentProgress($db){
     $storage = new Storage($db);
-    $studentProgress = $storage->viewStudentProgress();
+    $viewStudent = $storage->viewStudentProgress();
   }
 
   //method to call viewGroupProgress methodfrom Storage class
   public function callViewGroupProgress($db) {
     $storage = new Storage($db);
-    $groupProgress = $storage->viewGroupProgress();
+    $viewGroup = $storage->viewGroupProgress();
   }
 
   //method to call viewStudentProgress method from Storage class
   public function callViewAllStudentProgress($db) {
     $storage = new Storage($db);
-    $allStudents = $storage->viewAllStudentProgress();
+    $viewAll = $storage->viewAllStudentProgress();
   }
 
   //method to call assignGroup method from Storage class

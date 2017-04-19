@@ -4,7 +4,7 @@ class Activity {
 
   public $db;
 
-//constructor set in place to receive $db variable and set it as an internal class variable
+  //constructor set in place to receive $db variable and set it as an internal class variable
   public function __construct($db) {
     $this->db = $db;
   }
@@ -18,7 +18,7 @@ class Activity {
     $result = $ask->fetch();
     //temporary echo, may change when implemented
     echo $result['activity']. ' '. $result['type']. ' '. $result['startDate']. ' '. $result['difficulty']. ' '. $result['satisfaction']. ' '. $result['notes'];
-}
+  }
 
   //method to write the student's initial activity to the database
   public function insertActivity() {
@@ -47,7 +47,6 @@ class Activity {
     $ask = $this->db->prepare($sql);
     $ask->bindParam(':activity', $_POST['activity'], PDO::PARAM_STR);
     $ask->bindParam(':type', $_POST['$type'], PDO::PARAM_STR);
-  // use PARAM_STR even though the input is a number
     $ask->bindParam(':difficulty', $_POST['difficulty'], PDO::PARAM_STR);
     $ask->bindParam(':satisfaction', $_POST['satisfaction'], PDO::PARAM_STR);
     $ask->bindParam(':notes', $_POST['notes'], PDO::PARAM_STR);
@@ -68,4 +67,5 @@ class Activity {
     $ask->execute();
   }
 }
+
  ?>
