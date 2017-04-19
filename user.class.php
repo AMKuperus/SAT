@@ -29,49 +29,52 @@ class User {
 
 class Student extends User {
 //student functionality
-//function/method that calls viewActivities method from Storage class
+//function/method that calls viewActivities method from Activity class
   public function callViewActivities($db) {
-    $storage = new Storage($db);
-    $view = $storage->viewActivities();
+    $activity = new Activity($db);
+    $view = $activity->viewActivities();
 }
 
-//function/method that calls the insertActivity method from Storage class
+//function/method that calls the insertActivity method from Activity class
   public function callInsertActivity($db) {
-    $storage = new Storage($db);
-    $insert = $storage->insertActivity();
+    $activity = new Activity($db);
+    $insert = $activity->insertActivity();
 }
 
-//method to call the editActivities method from Storage class
+//method to call the editActivities method from Activity class
   public function callEditActivities($db) {
-    $storage = new Storage($db);
-    $edit = $storage->editActivities();
+    $activity = new Activity($db);
+    $edit = $activity->editActivities();
 }
 
-//method to call the finishActivity method from Storage class
+//method to call the finishActivity method from Activity class
   public function callFinishActivity($db) {
-    $storage = new Storage($db);
-    $finish = $storage->finishActivity();
+    $activity = new Activity($db);
+    $finish = $activity->finishActivity();
   }
 }
 
 class Monitor extends User {
-  //monitor functionality
-//method to call viewStudentProgress method from Storage class
+//monitor functionality
+  //method to call viewStudentProgress method from Storage class
   public function callViewStudentProgress($db){
     $storage = new Storage($db);
     $studentProgress = $storage->viewStudentProgress();
   }
 
+  //method to call viewGroupProgress methodfrom Storage class
   public function callViewGroupProgress($db) {
     $storage = new Storage($db);
     $groupProgress = $storage->viewGroupProgress();
   }
 
+  //method to call viewStudentProgress method from Storage class
   public function callViewAllStudentProgress($db) {
     $storage = new Storage($db);
     $allStudents = $storage->viewAllStudentProgress();
   }
 
+  //method to call assignGroup method from Storage class
   public function callAssignGroup($db) {
     $storage = new Storage($db);
     $assign = $storage->assignGroup();
