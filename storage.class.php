@@ -141,11 +141,20 @@ class Storage {
     }
 
     //method for monitor to assign group to user in user table
-    //TODO: create name paramater in createSelectBox function (in functions.inc.php)
     public function assignGroup() {
       $sql = "UPDATE sat.users SET groupID = :groupID WHERE userId = :userId";
       $ask = $this->db->prepare($sql);
       $ask->bindParam(':groupID', $_POST['groupID'], PDO::PARAM_STR);
+      $ask->bindParam(':userId', $_POST['userId'], PDO::PARAM_STR);
+      $ask->execute();
+    }
+
+    //method to assign role to a user from a select box
+    //TODO: Role gets returned as A,S,M = what is ideal?
+    public function assignRole() {
+      $sql = "UPDATE sat.users SET role = :role WHERE userId = :userId";
+      $ask = $this->db->prepare($sql);
+      $ask->bindParam(':role', $_POST['role'], PDO::PARAM_STR);
       $ask->bindParam(':userId', $_POST['userId'], PDO::PARAM_STR);
       $ask->execute();
     }

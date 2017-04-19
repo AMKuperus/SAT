@@ -21,13 +21,13 @@ notes     <input type=text name=notes><br>
       <br>';
 
       //$test runs returnGroup method from Storage class
-      $test = $x->returnGroups();
-      createSelectBox($test);
+      $test = $x->returnAllRoles();
+      createSelectBox($test, "role");
       //runs createSelectBox function from functions.inc with array from returnGroup method
 if (isset($_POST['submit'])) {
   $x->postData();
   //$z->callAssignGroup();
-  $x->assignGroup();
+  $x->assignRole();
 
 }
 echo '</form>';
