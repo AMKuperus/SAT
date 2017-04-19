@@ -119,8 +119,8 @@ class Storage {
       $ask->execute();
     }
 
-    //method to assign role to a user from a select box
-    public function assignRole() {
+    //method to update role to a user from a select box
+    public function updateRole() {
       $sql = "UPDATE sat.users SET role = :role WHERE userId = :userId";
       $ask = $this->db->prepare($sql);
       $ask->bindParam(':role', $_POST['role'], PDO::PARAM_STR);
