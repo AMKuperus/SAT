@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <?php
   //Make sure to use strict mode for session as security measure.
   ini_set('session.use_strict_mode', 1);
