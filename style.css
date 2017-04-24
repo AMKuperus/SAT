@@ -52,6 +52,14 @@ a:hover {
   width: 20em;
 }
 
+.uibox {
+  top: 1vw;
+  left: 1vw;
+  right: 1vw;
+  width: auto;
+  height: 85%;
+}
+
 #loginbtn {
   float: right;
 }

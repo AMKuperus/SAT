@@ -1,3 +1,3 @@
 <?php
-  echo '<div class="box">Student include</div>';
+  echo '<div class="box uibox">Student include</div>';
 ?>
