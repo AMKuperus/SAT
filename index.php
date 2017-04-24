@@ -39,24 +39,22 @@
 ?>
 <body>
   <h1>Student Activity Tracker</h1>
-  <!--switch to include login or studentpages or teacherpages detected from sessionvariable-->
   <?php
   require_once 'jumper.inc.php'; include 'functions.inc.php';
   include 'storage.class.php'; include 'user.class.php'; include 'monitor.class.php';
   include 'student.class.php'; include 'admin.class.php'; include 'activity.class.php';
 
-  //TODO create funtion for retrieveing role and add it here from userclass??
-/*if(isset($_SESSION['userName']) /*&& isset($_SESSION['usr'])) {
-    echo '<hr>' . $_SESSION['usr'] . '<hr>';
-    //$userName = openssl_decrypt($_SESSION['usr'], 'AES-256-CTR', 'itvitae', 0, 23);//TODO encryprion for username
-    $userName = $_SESSION['userName'];
-    echo $userName . '<hr>';
-    //$user = new User($db, getUser($db, $userName));
-    //$role = $user->role;
+  //Frontend controller
+  //See if there is a user in $_SESSION['user']
+  if(isset($_SESSION['user'])) {
+    //Create user from $_SESSION['user']
+    $user = new User($db, getUser($db, $_SESSION['userName']));
+    $userName = $user->userName;
+    //Retrieve role from user
+    $role = $user->role;
   } else {
     $role = '';
-  }*/
-  $role = '';
+  }
       switch($role) {
       case 'user':
         include 'user.inc.php';
@@ -76,28 +74,6 @@
 
     //only for testing remove when done
     echo "<hr>testuser :: qQ1!QWERTY<hr>";
-
-    $user = getUser($db, 'testuser');
-    $test = new User($db, $user);
-    echo $test->userName . $test->userID;
-    echo '<div class=box style=z-index:1>';
-    $c = new Storage($db);
-    $roles = $c->returnAllRoles();
-    createSelectBox($roles, "testname");
-    echo '</div>';
-    //echo '<div class=box style=z-index:2>';
-    //$ssl = openssl_get_cipher_methods(true);
-    //print_r($ssl);
-    //echo '<div>';
   ?>
-
-  <!--                    Cleanup this part and organize                     -->
-  <?php
-
-    //include 'test.class.php'; //include 'test.inc.php';
-  ?>
-  <div class='box' style='margin-left: 65vw'>
-    <?php include 'test2.inc.php'; ?>
-  </div>
 </body>
 </html>
