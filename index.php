@@ -44,12 +44,14 @@
 
   //Frontend controller
   //See if there is a user in $_SESSION['user']
-  if(isset($_SESSION['userName'])) {
+  if(isset($_SESSION['userName']) && isset($_SESSION['role'])) {
     //Create user from $_SESSION['user']
     $user = new User($db, getUser($db, $_SESSION['userName']));
     $userName = $user->userName;
-    //Retrieve role from user
-    $role = $user->role;
+    if($user->role == $_SESSION['role']) {
+      //Retrieve role from user
+      $role = $user->role;
+    }
   } else {
     $role = '';
   }
