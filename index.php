@@ -4,11 +4,11 @@
   ini_set('session.use_strict_mode', 1);
   //Set the default timezone for the server
   date_default_timezone_set("Europe/Amsterdam");
+  include 'head.inc.php';
   sessionStart();
   sessionRegenerate();
   //http://php.net/manual/en/function.session-create-id.php
   //https://www.security.nl/posting/29281/PHP+sessions%3B+hoe+het+wel+moet
-  include 'head.inc.php';
 
   function sessionStart() {
     //Defend against use off old session IDs
@@ -41,8 +41,6 @@
   <h1>Student Activity Tracker</h1>
   <?php
   require_once 'jumper.inc.php'; include 'functions.inc.php';
-  include 'storage.class.php'; include 'user.class.php'; include 'monitor.class.php';
-  include 'student.class.php'; include 'admin.class.php'; include 'activity.class.php';
 
   //Frontend controller
   //See if there is a user in $_SESSION['user']
