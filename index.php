@@ -44,7 +44,7 @@
 
   //Frontend controller
   //See if there is a user in $_SESSION['user']
-  if(isset($_SESSION['user'])) {
+  if(isset($_SESSION['userName'])) {
     //Create user from $_SESSION['user']
     $user = new User($db, getUser($db, $_SESSION['userName']));
     $userName = $user->userName;
