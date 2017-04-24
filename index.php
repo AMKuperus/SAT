@@ -42,21 +42,22 @@
   <!--switch to include login or studentpages or teacherpages detected from sessionvariable-->
   <?php
   require_once 'jumper.inc.php';
-  include 'functions.inc.php';
+  //include 'functions.inc.php';
   include 'storage.class.php'; include 'user.class.php'; include 'monitor.class.php';
   include 'student.class.php'; include 'admin.class.php'; include 'activity.class.php';
 
   //TODO create funtion for retrieveing role and add it here from userclass??
-if(isset($_SESSION['userName']) /*&& isset($_SESSION['usr'])*/) {
+/*if(isset($_SESSION['userName']) /*&& isset($_SESSION['usr'])) {
     echo '<hr>' . $_SESSION['usr'] . '<hr>';
     //$userName = openssl_decrypt($_SESSION['usr'], 'AES-256-CTR', 'itvitae', 0, 23);//TODO encryprion for username
     $userName = $_SESSION['userName'];
     echo $userName . '<hr>';
-    $user = new User($db, getUser($db, $userName));
-    $role = $user->role;
+    //$user = new User($db, getUser($db, $userName));
+    //$role = $user->role;
   } else {
     $role = '';
-  }
+  }*/
+  $role = '';
       switch($role) {
       case 'user':
         include 'user.inc.php';
