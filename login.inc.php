@@ -10,9 +10,6 @@
 //TODO different permissions = different parts of php per role
 ##Login page include
 
-  require_once 'jumper.inc.php';
-  include 'functions.inc.php';
-
 echo '<form class="box loginbox" action="" method="POST">
       <h2>Login</h2>';
 

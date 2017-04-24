@@ -41,8 +41,7 @@
   <h1>Student Activity Tracker</h1>
   <!--switch to include login or studentpages or teacherpages detected from sessionvariable-->
   <?php
-  require_once 'jumper.inc.php';
-  //include 'functions.inc.php';
+  require_once 'jumper.inc.php'; include 'functions.inc.php';
   include 'storage.class.php'; include 'user.class.php'; include 'monitor.class.php';
   include 'student.class.php'; include 'admin.class.php'; include 'activity.class.php';
 
