@@ -80,7 +80,8 @@ CREATE TABLE `groups` (
 INSERT INTO `groups` (`groupID`, `group`, `type`, `description`) VALUES
 (1, 'PHP19', 'PHP', 'descriptonPHP19'),
 (2, 'PHP14', 'PHP', 'descriptonPHP14'),
-(3, 'CS18', 'CS', 'descriptonCS18');
+(3, 'CS18', 'CS', 'descriptonCS18'),
+(4, 'HTML12', 'HTML', 'descriptonHTML12');
 
 -- --------------------------------------------------------
 
