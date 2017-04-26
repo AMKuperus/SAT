@@ -16,7 +16,7 @@ CREATE TABLE activity (
   activityID INT UNSIGNED NOT NULL AUTO_INCREMENT,
   type VARCHAR(255) NULL,
   startDate DATE NOT NULL,
-  endDate DATE NOT NULL,
+  endDate DATE NULL,
   difficulty INT NOT NULL,
   satisfaction INT NOT NULL,
   notes VARCHAR(255) NULL,
