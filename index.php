@@ -57,16 +57,16 @@
     $role = '';
   }
       switch($role) {
-      case 'user':
+      case 'REG':
         include 'user.inc.php';
         break;
-      case 'student':
+      case 'STU':
         include 'student.inc.php';
         break;
-      case 'monitor':
+      case 'MON':
         include 'monitor.inc.php';
         break;
-      case 'admin':
+      case 'ADM':
         include 'admin.inc.php';
         break;
       default:
