@@ -17,7 +17,7 @@
             '<a href="index.php">Go to the login-page</a>';
             //Change state in db
             changeToken($db, $userName);
-            changeToStudent($db, $userName);
+            changeToRegistered($db, $userName);
     } else {//no match
       echo '<small class="error">There is a problem activating your account.</small>';
     }

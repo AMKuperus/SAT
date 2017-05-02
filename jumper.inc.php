@@ -51,8 +51,8 @@ function changeToken(&$db, $userName) {
 }
 
 //Change userstate in database
-function changeToStudent(&$db, $userName) {
-  $sql = "UPDATE users SET role = 'student' WHERE userName = :name";
+function changeToRegistered(&$db, $userName) {
+  $sql = "UPDATE users SET role = 'REG' WHERE userName = :name";
   $ask = $db->prepare($sql);
   $ask->bindValue(':name', $userName, PDO::PARAM_STR);
   $ask->execute();
