@@ -5,6 +5,20 @@
 ##############################Functions for SAT###############################
 ##############################################################################
 
+  //Empty $_SESSION['userName'] and unset $_SESSION['userName'] to logout a user.
+  function sessionLogout() {
+    if(isset($_POST['logout'])) {
+      $_SESSION['userName'] = '';
+      unset($_SESSION['userName']);
+    }
+  }
+
+  //Create a button for logout
+  function logoutBtn() {
+    echo '<form method="POST" action="">
+          <button type="submit" value="logout" name="logout">Logout</button>
+          </form>';
+  }
 
   //Create a value-element for the html-inputfield of the form with the value
   //the user has already submitted so that if they need to correct something they
@@ -19,14 +33,14 @@
   }
 
   //TODO Encrypt function for encrypring $_SESSION data
-  function encryptThis() {
+  //function encryptThis() {
 
-  }
+  //}
 
   //TODO Decrypt function for decrypting $_SESSION data
-  function decryptThis() {
+  //function decryptThis() {
 
-  }
+  //}
 
   //If $pass is bigger then or 10 and smaller then 72(limit for BCRYPT) return true
   function passLength($pass) {

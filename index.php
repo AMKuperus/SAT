@@ -8,6 +8,7 @@
   include 'head.inc.php';
   sessionStart();
   sessionRegenerate();
+  sessionLogout();
   //http://php.net/manual/en/function.session-create-id.php
   //https://www.security.nl/posting/29281/PHP+sessions%3B+hoe+het+wel+moet
 
@@ -37,11 +38,14 @@
     echo 'Session_id: ' . $id;
   }
 
+  //only for testing remove when done
+  echo "<hr>| testUser | testStudent | testMonitor | testAdmin :: qQ1!QWERTY |<hr>";
+
 ?>
 <body>
   <h1>Student Activity Tracker</h1>
   <?php
-  require_once 'jumper.inc.php'; include 'functions.inc.php';
+  //require_once 'jumper.inc.php'; include 'functions.inc.php';
 
   //Frontend controller
   //See if there is a user in $_SESSION['user']
@@ -73,8 +77,6 @@
         include 'login.inc.php';
     }
 
-    //only for testing remove when done
-    echo "<hr>testuser :: qQ1!QWERTY<hr>";
   ?>
 </body>
 </html>
