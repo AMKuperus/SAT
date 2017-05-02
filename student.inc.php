@@ -1,3 +1,5 @@
 <?php
-  echo '<div class="box uibox">Student include</div>';
+  echo '<div class="box uibox">Student include';
+  logoutBtn();
+  echo '</div>';
 ?>
