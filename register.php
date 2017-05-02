@@ -5,7 +5,7 @@
 ####Copyleft,only to be used for non-profit and always mention the author.####
 ############################Registration for SAT##############################
 ##############################################################################
-  include 'head.inc.php'; include 'functions.inc.php'; include 'jumper.inc.php';
+  include 'head.inc.php'; 
   echo '<body>';
 
   $user = [];
