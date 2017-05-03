@@ -9,6 +9,6 @@
     spl_autoload_register(function($class_name) {
       include $class_name . '.class.php';
     });
-    echo '<code>Version 0.6 PHP7 Local Test environment</code>';
+    echo '<code>Version 0.6 PHP7 Local Test Environment</code>';
   ?>
 </head>
