@@ -5,7 +5,7 @@
   ini_set('session.use_strict_mode', 1);
   //Set the default timezone for the server
   date_default_timezone_set("Europe/Amsterdam");
-  include 'head.inc.php';
+  require 'head.inc.php';
   sessionStart();
   sessionRegenerate();
   sessionLogout();
@@ -45,7 +45,6 @@
 <body>
   <h1>Student Activity Tracker</h1>
   <?php
-  //require_once 'jumper.inc.php'; include 'functions.inc.php';
 
   //Frontend controller
   //See if there is a user in $_SESSION['user']
